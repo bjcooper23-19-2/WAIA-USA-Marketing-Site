@@ -245,7 +245,7 @@ test("a fresh request can be issued after expiry", () => {
   assert.notEqual(rows[1][5], rows[2][5]);
 });
 
-test("site pages show request journey and generated Insight CTA points to landing", () => {
+test("UK-bound check source remains intact while the US Insight CTA goes to See WAIA", () => {
   const article = readFileSync(
     new URL(
       "../insights/ai-adoption-is-rising-is-it-working/index.html",
@@ -277,7 +277,7 @@ test("site pages show request journey and generated Insight CTA points to landin
   );
   assert.match(
     article,
-    /class="insight-tool-cta"[\s\S]*href="\/workplace-ai-visibility-check\/"/,
+    /class="insight-tool-cta"[\s\S]*href="\/see-waia\/"/,
   );
   assert.match(landing, /Request access/);
   assert.match(start, /Access is not immediate/);

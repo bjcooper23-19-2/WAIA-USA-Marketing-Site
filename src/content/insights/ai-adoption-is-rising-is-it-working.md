@@ -68,7 +68,7 @@ All of those can be valuable outcomes. But the value comes from what happens nex
 
 ## Better evidence does not mean more surveillance
 
-The obvious response is that organisations need [more visibility](/workplace-ai-visibility-check/). I agree, but that can quickly head in the wrong direction.
+The obvious response is that organisations need [more visibility](/see-waia/). I agree, but that can quickly head in the wrong direction.
 
 I do not think the answer is to monitor every prompt employees write or turn usage into another productivity score. That can tell you a great deal about activity and very little about whether work is improving.
 

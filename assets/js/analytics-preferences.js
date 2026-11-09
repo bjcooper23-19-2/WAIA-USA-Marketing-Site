@@ -7,7 +7,7 @@
   const show = (objected) => {
     status.textContent = objected
       ? "Analytics is off for this browser."
-      : "Analytics is on for this browser.";
+      : "Analytics is allowed for this browser if enabled on the site.";
     objectButton.hidden = objected;
     allowButton.hidden = !objected;
   };

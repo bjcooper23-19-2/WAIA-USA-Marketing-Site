@@ -9,7 +9,9 @@
     "enquiry_type",
     params.get("enquiry_type") === "procurement" ? "procurement" : "walkthrough",
   );
-  if (source) destination.searchParams.set("s", source);
+  // Keep the existing Tally hidden field while distinguishing US enquiries
+  // from submissions on the UK site, including visitors without a campaign tag.
+  destination.searchParams.set("s", `us_${source || "direct"}`);
 
   let forwarded = false;
   let observer;
@@ -31,6 +33,13 @@
       )
     );
   };
+
+  // The US launch works without a configured analytics property. In that
+  // case there is no beacon to wait for, so continue to Tally immediately.
+  if (!document.querySelector("script[data-waia-us-token]")) {
+    forward();
+    return;
+  }
 
   // Wait for the existing beacon's request, not merely its script download.
   // Analytics blockers/network failures must never trap an enquiry.

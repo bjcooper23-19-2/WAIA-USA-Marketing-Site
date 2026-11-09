@@ -4,10 +4,11 @@ import path from "node:path";
 const root = process.cwd();
 const contentDir = path.join(root, "src/content/insights");
 const outputDir = path.join(root, "insights");
-const siteUrl = "https://waia.co.uk";
+const siteUrl = "https://waiausa.com";
+const originalArticleUrl = (slug) => `https://waia.co.uk/insights/${slug}/`;
 const loginUrl = "https://app.waia.co.uk/login";
 const walkthroughUrl =
-  "https://tally.so/r/objzGM?product=WAIA&amp;enquiry_type=walkthrough";
+  "https://tally.so/r/objzGM?product=WAIA&amp;enquiry_type=walkthrough&amp;s=us_direct";
 const requiredFrontmatter = ["title", "slug", "date", "category", "excerpt"];
 const safeSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -191,7 +192,7 @@ const markdownToHtml = (markdown) => {
 };
 
 const formatDate = (value) =>
-  new Intl.DateTimeFormat("en-GB", {
+  new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -290,7 +291,7 @@ const documentShell = ({
   ogDescription = description,
   structuredData,
 }) => `<!doctype html>
-<html lang="en-GB">
+<html lang="en-US">
   <head>
     <link rel="stylesheet" href="/assets/css/workplace-ai-academy.css" />
     <link rel="stylesheet" href="/assets/css/insights.css" />
@@ -362,7 +363,7 @@ const loadArticles = async () => {
       html: markdownToHtml(body),
       formattedDate: formatDate(data.date),
       readingTime: data.readingTime || readingTime(body),
-      url: `${siteUrl}/insights/${data.slug}/`,
+      url: originalArticleUrl(data.slug),
       dateModified: data.dateModified || data.date,
     });
   }
@@ -382,7 +383,7 @@ const renderIndex = (articles) => {
           </div>
           <h3>${escapeHtml(article.title)}</h3>
           <p>${escapeHtml(article.excerpt)}</p>
-          <a class="insight-read-link" href="/insights/${article.slug}/">Read insight</a>
+          <a class="insight-read-link" href="${article.url}">Read insight on WAIA UK</a>
         </article>`,
     )
     .join("\n");
@@ -469,6 +470,8 @@ const renderArticle = (article) =>
     ogTitle: article.ogTitle || article.title,
     ogDescription:
       article.ogDescription || article.metaDescription || article.excerpt,
+    // These articles are copied from the UK site. Keep one canonical article
+    // URL until a distinct US edition is written and approved.
     canonical: article.url,
     type: "article",
     publishedDate: `${article.date}T00:00:00Z`,
@@ -485,7 +488,7 @@ const renderArticle = (article) =>
         "@type": "Organization",
         name: "WAIA",
         legalName: "Nineteen Point Two Ltd",
-        url: siteUrl,
+        url: "https://waia.co.uk",
       },
     },
     body: `
@@ -510,10 +513,10 @@ const renderArticle = (article) =>
                 article.visibilityCheckCta === "true"
                   ? `
                 <aside class="insight-tool-cta" aria-labelledby="visibility-check-cta-title">
-                  <div class="eyebrow">Free working tool</div>
-                  <h2 id="visibility-check-cta-title">Check what managers can actually see.</h2>
-                  <p>The free Workplace AI Visibility Check gives you seven practical questions about current use, affected work, human review and capacity. Allow around 10–15 minutes and take a practical result back into the business.</p>
-                  <a class="btn primary" href="/workplace-ai-visibility-check/">Start the Workplace AI Visibility Check →</a>
+                  <div class="eyebrow">See WAIA</div>
+                  <h2 id="visibility-check-cta-title">See how managers review workplace AI evidence.</h2>
+                  <p>Ask for a walkthrough focused on the work, the evidence behind it, and the decisions your team needs to make.</p>
+                  <a class="btn primary" href="/see-waia/">Request a walkthrough →</a>
                 </aside>`
                   : ""
               }

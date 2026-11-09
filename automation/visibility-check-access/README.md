@@ -1,3 +1,5 @@
+> **US repository note (9 November 2026):** The steps below are the inherited UK deployment record. Do not run them from this repository or attach the UK Worker route. The US Pages build excludes the check; see `docs/us-launch.md`.
+
 # Visibility Check access: issue #59 post-merge setup
 
 The repository source for the existing Google Apps Script project is [`Code.gs`](Code.gs). The WAIA site remains on GitHub Pages. Redemption now uses the dedicated Cloudflare Worker in [`cloudflare/visibility-check-redemption/`](../../cloudflare/visibility-check-redemption/) so the browser never contacts Apps Script.

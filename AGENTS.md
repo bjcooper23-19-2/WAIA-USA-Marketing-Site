@@ -1,4 +1,4 @@
-# Codex instructions for WAIA Marketing Site
+# Codex instructions for WAIA USA Marketing Site
 
 Read README.md and relevant project documentation before making changes. Preserve WAIA's positioning, approved claims, branding, buyer journey, accessibility and conversion paths.
 
@@ -32,3 +32,16 @@ Follow [shared proportionate delivery](https://github.com/bjcooper23-19-2/codex-
 WAIA marketing: prioritise buyer comprehension and conversion. Treat privacy/tracking consent, legal terms, submissions/integrations and material pricing or commercial claims as Protected; small copy and styling fixes can be Fast.
 
 Before implementing significant features, state the user problem, evidence versus assumption, smallest useful intervention and success indicator. Prefer removing unnecessary user work over adding another feature. Only invoke specialist design/editorial skills where relevant. Use one concise handoff: **what changed and why; checks performed; remaining risks; decision needed**. Keep detailed evidence in PRs rather than long chat reports. For the next 10–15 changes, note risk classification, human supervision effort, rework and escaped defects where known.
+
+## US repository boundary
+
+This repository prepares the separate `waiausa.com` marketing site. The UK
+marketing site, WAIA application and hosted Cloudflare settings are outside
+its scope. Nineteen Point Two Ltd remains the UK operator. Do not imply a US
+legal entity, US hosting, US regulatory certification, approved customer
+results or a USD price without evidence and owner approval.
+
+Keep the Open Wayfinder identity and evidence-led positioning. The US Pages
+build omits the inherited UK Visibility Check and copied Insights articles.
+See `docs/us-launch.md` for route boundaries, dependencies and owner decisions.
+Do not attach the inherited UK Worker route from this repository.

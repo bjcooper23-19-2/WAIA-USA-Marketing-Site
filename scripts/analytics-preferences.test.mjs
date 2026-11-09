@@ -6,7 +6,7 @@ import vm from "node:vm";
 const loader = readFileSync(new URL("../assets/js/analytics.js", import.meta.url), "utf8");
 const controls = readFileSync(new URL("../assets/js/analytics-preferences.js", import.meta.url), "utf8");
 
-function browser(initial = null, storageAvailable = true) {
+function browser(initial = null, storageAvailable = true, token = "a".repeat(32)) {
   let saved = initial;
   const scripts = [];
   const elements = Object.fromEntries(
@@ -35,6 +35,7 @@ function browser(initial = null, storageAvailable = true) {
   const context = {
     window: { localStorage },
     document: {
+      currentScript: { dataset: { waiaUsToken: token } },
       createElement: (tag) => ({ tag, dataset: {} }),
       body: { appendChild: (script) => scripts.push(script) },
       getElementById: (id) => elements[id],
@@ -55,7 +56,14 @@ test("normal page loads one Cloudflare beacon when storage is available", () => 
   assert.equal(b.scripts.length, 1);
   assert.equal(b.scripts[0].type, "module");
   assert.equal(b.scripts[0].src, "https://static.cloudflareinsights.com/beacon.min.js");
-  assert.equal(JSON.parse(b.scripts[0].dataset.cfBeacon).token, "9fa2711aed53428980734989cf03178a");
+  assert.equal(JSON.parse(b.scripts[0].dataset.cfBeacon).token, "a".repeat(32));
+});
+
+test("without a US analytics token the UK property is never loaded", () => {
+  const b = browser(null, true, "");
+  b.load();
+  assert.equal(b.scripts.length, 0);
+  assert.doesNotMatch(loader, /9fa2711aed53428980734989cf03178a/);
 });
 
 test("objection persists and prevents beacon loading after reload and navigation", () => {
@@ -107,7 +115,7 @@ test("every public page footer links to Analytics preferences", () => {
   const pages = [];
   function visit(directory) {
     for (const entry of readdirSync(directory, { withFileTypes: true })) {
-      if (entry.name === ".git" || entry.name === "node_modules") continue;
+      if ([".git", "node_modules", "dist"].includes(entry.name)) continue;
       const path = new URL(entry.name + (entry.isDirectory() ? "/" : ""), directory);
       if (entry.isDirectory()) visit(path);
       else if (entry.name.endsWith(".html")) pages.push(path);

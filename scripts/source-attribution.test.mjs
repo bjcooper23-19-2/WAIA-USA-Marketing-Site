@@ -12,7 +12,7 @@ const handoff = readFileSync(
   "utf8",
 );
 const sources = ["ap", "gm", "19", "li"];
-const tally = "https://tally.so/r/objzGM?product=WAIA&enquiry_type=walkthrough";
+const tally = "https://tally.so/r/objzGM?product=WAIA&enquiry_type=walkthrough&s=us_direct";
 
 function attribute(search = "") {
   const unchanged = [
@@ -36,8 +36,8 @@ function attribute(search = "") {
     window: {
       location: {
         search,
-        origin: "https://waia.co.uk",
-        href: "https://waia.co.uk/" + search,
+        origin: "https://waiausa.com",
+        href: "https://waiausa.com/" + search,
       },
       get sessionStorage() { throw Error("marketing storage accessed"); },
       get localStorage() { throw Error("marketing storage accessed"); },
@@ -73,7 +73,7 @@ test("duplicate content and content without a valid source are ignored", () => {
   assert.equal(attribute("?s=bad&c=one")[0], "/go/see-waia/direct/");
 });
 
-function redirect(source, query = "", observerAvailable = true) {
+function redirect(source, query = "", observerAvailable = true, analyticsConfigured = true) {
   let callback,
     timer,
     errorHandler,
@@ -82,8 +82,8 @@ function redirect(source, query = "", observerAvailable = true) {
     disconnected = false;
   const location = {
     pathname: `/go/see-waia/${source}/`,
-    origin: "https://waia.co.uk",
-    href: `https://waia.co.uk/go/see-waia/${source}/${query}`,
+    origin: "https://waiausa.com",
+    href: `https://waiausa.com/go/see-waia/${source}/${query}`,
     search: query,
     replace: (url) => {
       result = url;
@@ -107,7 +107,7 @@ function redirect(source, query = "", observerAvailable = true) {
     URLSearchParams,
     window: { location },
     document: {
-      querySelector: () => ({
+      querySelector: (selector) => selector === "script[data-waia-us-token]" && !analyticsConfigured ? null : ({
         addEventListener: (event, fn) => {
           assert.equal(event, "error");
           errorHandler = fn;
@@ -157,7 +157,7 @@ for (const source of [...sources, "direct", "invalid"])
     assert.equal(url.searchParams.get("enquiry_type"), "walkthrough");
     assert.equal(
       url.searchParams.get("s"),
-      sources.includes(source) ? source : null,
+      `us_${sources.includes(source) ? source : "direct"}`,
     );
     assert.equal(url.searchParams.get("c"), null);
     assert.equal(r.disconnected, true);
@@ -181,7 +181,7 @@ test("content values are not sent to Tally without a matching hidden field", () 
 
 test("preserve procurement; same-origin Cloudflare endpoint", () => {
   const r = redirect("gm", "?enquiry_type=procurement&c=proposal-followup");
-  r.resource("https://waia.co.uk/cdn-cgi/rum?x=1");
+  r.resource("https://waiausa.com/cdn-cgi/rum?x=1");
   const url = new URL(r.result);
   assert.equal(url.searchParams.get("enquiry_type"), "procurement");
   assert.equal(url.searchParams.get("c"), null);
@@ -196,8 +196,15 @@ test("blocked/slow/unsupported analytics never blocks conversion", () => {
   const r = redirect("ap", "?c=apollo-followup");
   r.error();
   const url = new URL(r.result);
-  assert.equal(url.searchParams.get("s"), "ap");
+  assert.equal(url.searchParams.get("s"), "us_ap");
   assert.equal(url.searchParams.get("c"), null);
+});
+
+test("unconfigured US analytics sends the visitor to Tally immediately", () => {
+  const r = redirect("gm", "?enquiry_type=procurement", true, false);
+  assert.equal(new URL(r.result).searchParams.get("s"), "us_gm");
+  assert.equal(new URL(r.result).searchParams.get("enquiry_type"), "procurement");
+  assert.equal(r.count, 1);
 });
 
 test("five noindex routes, one unchanged beacon, no sitemap entries", () => {
@@ -214,6 +221,7 @@ test("five noindex routes, one unchanged beacon, no sitemap entries", () => {
     assert.match(html, /assets\/js\/analytics\.js/);
     assert.ok(!html.includes('rel="canonical"'));
     assert.ok(!html.includes("source-attribution.js"));
+    assert.match(html, new RegExp(`&amp;s=us_${source}`));
   }
   assert.ok(!handoff.includes("sessionStorage"));
   assert.doesNotMatch(attribution, /sessionStorage|waia:source|waia:content/);

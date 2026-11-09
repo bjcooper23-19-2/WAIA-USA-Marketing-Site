@@ -1,3 +1,5 @@
+> **US repository note (9 November 2026):** This is an inherited UK review record. US analytics is disabled until a separate property token and owner-reviewed notice are configured. See `docs/us-launch.md`.
+
 # Website analytics objection
 
 Cloudflare Web Analytics remains the site's only analytics beacon. Every page that previously included the beacon now loads `/assets/js/analytics.js`. This first-party script checks the browser's `localStorage` value `waia:analytics-objection` before requesting Cloudflare's script. A value of `1` prevents the beacon from loading on subsequent page loads and navigation. If browser storage cannot be read, analytics stays off.
