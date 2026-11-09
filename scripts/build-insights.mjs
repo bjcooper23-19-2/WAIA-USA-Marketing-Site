@@ -241,7 +241,7 @@ const header = (current = "") => `
   </nav>
 </header>`;
 
-const footer = `
+const footer = (marketSwitcher = "") => `
 <footer>
   <div class="footer-grid">
     <span>&copy; 2026 Nineteen Point Two Ltd.</span>
@@ -262,7 +262,7 @@ const footer = `
       |
       <a href="https://legal.nineteenpointtwo.com/cookies/" target="_blank" rel="noopener noreferrer">Cookies</a> |
       <a href="/analytics-preferences/">Analytics preferences</a>
-    </span>
+    </span>${marketSwitcher}
   </div>
 </footer>`;
 
@@ -317,7 +317,8 @@ const documentShell = ({
     <div class="site">
       ${header("insights")}
       ${body}
-      ${footer}
+      ${footer(canonical === `${siteUrl}/insights/` ? `
+    <span role="group" aria-label="Market">Market: <a href="https://waia.co.uk/">UK</a> | <a href="https://waiausa.com/" aria-current="page">USA (current)</a></span>` : "")}
     </div>
     <script src="/assets/js/nav.js" defer></script>
     <script src="/assets/js/source-attribution.js" defer></script>
@@ -381,8 +382,8 @@ const renderIndex = (articles) => {
             <span>${escapeHtml(article.category)}</span>
             <span>${escapeHtml(article.readingTime)}</span>
           </div>
-          <h3>${escapeHtml(article.title)}</h3>
-          <p>${escapeHtml(article.excerpt)}</p>
+          <h3>${escapeHtml(article.title.replaceAll("organisations", "organizations"))}</h3>
+          <p>${escapeHtml(article.excerpt.replaceAll("organisations", "organizations"))}</p>
           <a class="insight-read-link" href="${article.url}">Read insight on WAIA UK</a>
         </article>`,
     )
@@ -408,7 +409,7 @@ const renderIndex = (articles) => {
       },
       hasPart: articles.map((article) => ({
         "@type": "Article",
-        headline: article.title,
+        headline: article.title.replaceAll("organisations", "organizations"),
         articleSection: article.category,
         url: article.url,
         datePublished: article.date,
