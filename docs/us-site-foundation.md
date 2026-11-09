@@ -23,8 +23,9 @@ Cloudflare Pages or deploy `waiausa.com`.
 2. Set local `main` to the fetched source commit, retaining its ancestry.
 3. Removed `CNAME` and added this record.
 4. Ran the existing Insights generator and Node test suite. The generator
-   completed, but changed nine committed Insights HTML files, including
-   removal of metadata and structured data from the index. Restored those
-   generated files from the source commit to keep this foundation an exact
-   copy outside the two intentional changes.
+   completed, but changed nine committed Insights HTML files. A line-based
+   diff appeared to remove index metadata and structured data, so those files
+   were restored to keep this foundation an exact copy outside the two
+   intentional changes. Later inspection found the metadata still present in
+   compact generated markup; see `docs/us-launch.md` for the resolution.
 5. Pushed the resulting `main` branch to the empty US repository.

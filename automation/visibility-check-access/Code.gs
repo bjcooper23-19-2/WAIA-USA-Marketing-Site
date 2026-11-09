@@ -3,6 +3,8 @@
  * Configure SHEET_ID, WEBHOOK_SECRET, TALLY_FORM_ID and PROXY_SECRET in Script
  * Properties.
  * The script runs as its owner. It creates Gmail drafts; it never sends mail.
+ * This inherited source still generates UK access links. It is excluded from
+ * the US Pages build and must not be deployed for US visitors as written.
  */
 const HEADERS = [
   "Requested at",

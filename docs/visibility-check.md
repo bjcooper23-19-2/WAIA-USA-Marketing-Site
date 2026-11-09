@@ -1,3 +1,5 @@
+> **US repository note (9 November 2026):** This describes the inherited UK flow. The US Pages build excludes these routes because the Apps Script creates `waia.co.uk` access links and no US redemption Worker is configured. See `docs/us-launch.md`.
+
 # Workplace AI Visibility Check
 
 The public landing page is `/workplace-ai-visibility-check/`. It explains the exercise before asking for contact details. `/start/`, `/access/`, `/check/`, `/results/` and `/go/visibility-check/` are `noindex` and excluded from the sitemap. The article at `/insights/ai-adoption-is-rising-is-it-working/` links to the public landing page.

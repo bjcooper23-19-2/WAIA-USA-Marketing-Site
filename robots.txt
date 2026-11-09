@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://waia.co.uk/sitemap.xml
+Sitemap: https://waiausa.com/sitemap.xml

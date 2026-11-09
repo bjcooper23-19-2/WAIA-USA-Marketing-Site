@@ -1,283 +1,45 @@
-# Portfolio continuity — 17 August 2026
+# WAIA USA Marketing Site
 
-This repository owns `waia.co.uk`: the public buyer journey, product explanation, pricing presentation, SEO, privacy-conscious marketing analytics, enquiry attribution, public proof, social metadata and WAIA-specific public trust/procurement presentation.
+This repository prepares the separate US marketing site for `https://waiausa.com/`. It starts from the UK WAIA marketing site at source commit `424d63113ecb1b2483be9ca07ed52b0a984e632a`; see [the foundation record](docs/us-site-foundation.md). Nineteen Point Two Ltd remains the UK operator. The application sign-in still points to `https://app.waia.co.uk/login`.
 
-The current commercial task is to turn WAIA's evidence-to-value position into credible buyer confidence: real organisational use, approved customer proof, accurate trust material and a technically sound public journey. The logged-in application, its evidence model, access and operating workflows belong in `workplace-ai-academy-7ebe4f12`.
+WAIA helps managers see where AI is used in recurring work, what changed across a workflow, and which claims about value the evidence supports. The Open Wayfinder brand assets and visual system remain in `brand/`. This site does not claim US data residency, US regulatory certification, customer results, a US legal entity, or a USD price.
 
-Settled:
+## Local build and checks
 
-- WAIA helps organisations see where AI is used, whether work improves and what indicative capacity impact can be defended.
-- Learning, guidance and management controls support trustworthy evidence; they are not the headline proposition.
-- Privacy-conscious source attribution is implemented. Do not add Apollo website tracking or unnecessary consent/tracking infrastructure.
-- No customer proof may be invented or published without approval.
-
-Genuinely next: approved customer proof, legal/procurement accuracy where incomplete, indexing verification based on actual evidence, aggregate analytics verification and proportionate technical/accessibility/performance QA. Social asset polish is later.
-
-Do not reopen generic LMS positioning, unsupported ROI claims, speculative tracking infrastructure or pricing changes without new evidence.
-
----
-
-# WAIA Marketing Site
-
-Standalone product marketing website for WAIA, the workplace AI evidence and management visibility product operated by Nineteen Point Two Ltd.
-
-## Purpose
-
-This repository contains the standalone WAIA product website for `https://waia.co.uk/`.
-
-WAIA is the primary visible brand. Nineteen Point Two Ltd is the legal operator, customer relationship owner and secondary endorsement.
-
-## Local Preview
-
-This is a static HTML/CSS/JS site. From the repository root:
+Use Node 22 or later. There are no package dependencies.
 
 ```sh
-npx http-server . -p 4173
+node scripts/build-site.mjs
+node --test scripts/*.test.mjs
+python3 -m http.server 4173 --directory dist
 ```
 
-Then open `http://127.0.0.1:4173/`.
+Open `http://127.0.0.1:4173/`. The repeatable build writes only public routes and referenced assets into `dist/`; `dist/` is ignored by Git. Never set the Cloudflare Pages output directory to the repository root.
 
-## Route Structure
+The Insights source remains in `src/content/insights/`. `node scripts/build-insights.mjs` regenerates the index and eight article files in `insights/`. The Node suite compares every regenerated file byte for byte with the committed output and checks metadata and structured data. The US build publishes only the index. Its cards link to the original articles at `waia.co.uk`, avoiding a second public copy of unchanged articles.
 
-- `/` - product overview
-- `/how-it-works/` - product operating model and implementation
-- `/pricing/` - annual licence pricing, scope and commercial FAQ
-- `/insights/` - WAIA workplace AI editorial index
-- `/insights/ai-adoption-is-rising-is-it-working/`
-- `/insights/how-to-measure-ai-time-savings-at-work/`
-- `/insights/ai-adoption-vs-ai-effectiveness/`
-- `/insights/shadow-ai-workplace-ai-adoption/`
-- `/insights/cost-of-ai-is-becoming-visible/`
-- `/insights/hidden-cost-of-workplace-ai/`
-- `/insights/operational-strain-beneath-workplace-ai-adoption/`
-- `/insights/hidden-cost-of-fragmented-ai-adoption/`
-- `/see-waia/` - WAIA-specific conversion route for campaigns and manually shared walkthrough links
-- `/workplace-ai-visibility-check/` - public, indexable free visibility exercise; the request, access, check and personal result routes are `noindex`
-- `/who-its-for/` - secondary buyer fit and organisational signals route
-- `/data-privacy/` - data, privacy and product boundaries
-- `/terms/` - WAIA Terms of Service
-- `/ai-use-statement/` - WAIA Product and AI Use Statement
-- `/404.html`
-- `/robots.txt`
-- `/sitemap.xml`
+## Public routes
 
-## Production Targets
+| Route | Purpose |
+| --- | --- |
+| `/` | Product and evidence-led proposition |
+| `/how-it-works/` | Operating model, evidence strength and review |
+| `/who-its-for/` | Buyer fit and management accountability |
+| `/pricing/` | Enquiry-led scope and commercial terms |
+| `/see-waia/` | Walkthrough request |
+| `/insights/` | US editorial index linking to original UK articles |
+| `/data-privacy/` | Product data boundaries and legal links |
+| `/terms/` | Current Nineteen Point Two Ltd WAIA terms |
+| `/ai-use-statement/` | Current product and AI use statement |
+| `/analytics-preferences/` | Saved Cloudflare analytics objection; noindex |
+| `/go/see-waia/{ap,gm,19,li,direct}/` | Noindex Tally handoffs |
 
-- Marketing site: `https://waia.co.uk/`
-- WAIA application login: `https://app.waia.co.uk/login`
-- Enquiry form: `https://tally.so/r/objzGM`
-- Operator: Nineteen Point Two Ltd
+The copied Workplace AI Visibility Check remains in the repository for reference but is excluded from `dist/`. Its existing Apps Script issues UK access links and the UK Worker is attached to `waia.co.uk`. Requests for the omitted US routes redirect to `/see-waia/` until a separate US flow is configured and tested. The public site has no `/api/visibility-check/redeem` endpoint.
 
-## Page Architecture
+## Enquiries and analytics
 
-The site is organised around the buyer questions a prospective customer needs to answer:
+The existing Tally form remains the enquiry destination. Its hidden fields `product`, `enquiry_type`, and `s` are preserved. US submissions use `s=us_ap`, `us_gm`, `us_19`, `us_li`, or `us_direct`; source tags are taken only from the current URL and are never stored in the browser. A direct fallback carries `us_direct` even without JavaScript. An approved channel tag can be lost after internal navigation; the lead still retains the US origin through `us_direct`. No new tracking service is used.
 
-- What is WAIA?
-- How does it work?
-- What does it cost?
-- What should I do next?
-- What does it record and how is customer data handled?
+The inherited UK Cloudflare Web Analytics token was removed. The optional build variable `WAIA_US_WEB_ANALYTICS_TOKEN` accepts a separate 32-character US property token. With no token, no beacon loads and Tally handoffs continue immediately. The variable is ignored on preview branches. See [US launch and deployment notes](docs/us-launch.md) for exact Pages settings, approval decisions and smoke tests.
 
-WAIA is positioned around the move from AI adoption to workplace evidence and better management decisions. The primary homepage proposition is:
-
-**Can you prove what AI is doing to the work?**
-
-The primary navigation is intentionally simpler: Product, How it works, Pricing, Insights and See WAIA. The homepage should help a first-time buyer quickly understand three questions: where AI is being used in real work, whether it is making that work better or worse, and how strong the evidence is. Deeper methodology, buyer-fit detail and trust/procurement information remain available through supporting and footer routes.
-
-The `See WAIA` route gives the site a short WAIA-specific conversion step before the dedicated WAIA Tally form. It passes `product=WAIA` and `enquiry_type=walkthrough` in the Tally URL so the form can capture WAIA context through matching hidden fields.
-
-The supporting marketing device **Forget vibes. Get evidence.** remains useful where the site explains evidence strength, but it should not force methodology into the first screen.
-
-The site should explain that WAIA helps organisations establish where AI is being used, what’s happening to the work, how strong the evidence is and where indicative capacity evidence supports management action. Safety, guidance, learning and manager support remain important because they help produce more trustworthy workplace evidence.
-
-Do not publish a bounded first-deployment offer, 90-day Evidence Programme price, discount or credit against annual licence until the commercial terms are explicitly approved. The site can be structured to support such an offer later, but should not invent it.
-
-WAIA is also the permanent editorial home for workplace AI content. Insights should stay focused on practical, operator-led thinking about workplace AI adoption value, informal and Shadow AI use, operational visibility, guidance and governance as enablement, learner and manager judgement, workflow consistency, evidence of effective AI use and hidden adoption risk.
-
-## Insights Publishing
-
-Insight source content lives in:
-
-`src/content/insights/`
-
-Generated output lives in:
-
-`insights/`
-
-Build the Insights section from markdown with:
-
-```sh
-node scripts/build-insights.mjs
-```
-
-The generator reads markdown source files, sorts articles newest first and writes the Insights index plus one folder-style route per article. The initial migration added six articles; future Insights can be added by creating another markdown source with the same frontmatter and running the build.
-
-Required frontmatter:
-
-- `title`
-- `slug`
-- `date`
-- `category`
-- `excerpt`
-
-Optional frontmatter currently supported:
-
-- `metaTitle`
-- `metaDescription`
-- `ogTitle`
-- `ogDescription`
-- `dateModified`
-- `readingTime`
-- `tags`
-- `visibilityCheckCta` (`true` to show the contextual Visibility Check CTA after an article)
-
-Commit both the markdown source files and generated HTML whenever Insights content changes. Do not edit generated article HTML directly unless the generator is also updated to preserve the change.
-
-Editorial guardrails:
-
-- WAIA owns workplace AI editorial content.
-- WAIA should increasingly connect workplace AI adoption to evidence, value, workflow impact and management decisions.
-- Keep the section calm, credible, practical, commercially grounded and operator-led.
-- Do not turn Insights into a generic AI blog.
-- Do not add unsupported customer outcomes, testimonials, certifications or compliance claims.
-- Do not claim precise cash savings, guaranteed productivity gains, employee productivity monitoring, prompt monitoring or autonomous ROI proof.
-- Keep article CTAs aligned to the WAIA buyer journey.
-- Avoid links that send users through old Nineteen Point Two workplace AI routes.
-
-More detail is in `docs/insights.md`.
-
-## Customer Proof, Product Proof And Illustrative Examples
-
-WAIA does not yet have approved public customer logos, testimonials, measurable case studies or named customer outcomes for the marketing site. Until those exist, use product proof, product screenshots and clearly labelled illustrative examples to explain what WAIA can evidence.
-
-Illustrative examples must always be labelled as illustrative and must not be presented as real customer stories. Do not invent customer quotes, customer names, adoption figures, ROI claims, certifications, productivity outcomes or case studies.
-
-Founding-customer language can explain the practical advantage of closer implementation support, direct feedback loops and structured evidence review, but it must not imply existing market traction, discounts or commercial terms that have not been approved.
-
-## Privacy-Safe Enquiry Source Attribution
-
-WAIA supports a lightweight `s` query parameter on inbound links so enquiry source context can be passed to the dedicated WAIA Tally form without cookies, behavioural tracking or a consent platform.
-
-Approved source values:
-
-- `s=ap` - Apollo outbound email
-- `s=gm` - manually personalised Gmail outbound
-- `s=19` - Nineteen Point Two website or referral
-- `s=li` - LinkedIn organic
-
-The shared script at `assets/js/source-attribution.js` validates approved values on the current URL and routes dedicated WAIA Tally links through `/go/see-waia/<source>/`. The five routes are `ap`, `gm`, `19`, `li` and `direct`. Invalid or missing values use `direct`. Marketing attribution is not stored in the browser. Internal navigation, canonicals, sitemap entries, metadata, legal links and the application login URL are unchanged.
-
-To capture the value in Tally submissions, the Tally enquiry form needs a hidden field named exactly `s`. To capture WAIA walkthrough context from primary `See WAIA` CTAs and `/see-waia/`, it should also include hidden fields named exactly `product` and `enquiry_type`.
-
-Cloudflare Web Analytics remains the only analytics beacon. Path reporting on the five `noindex` handoff routes measures aggregate Tally click-throughs by source, not unique visitors or submissions. Redirects wait for the existing beacon request to complete, with a 1.5-second fail-open limit. Blockers and network failures can prevent measurement; post-deployment Cloudflare reporting must be verified before issue #45 closes. The routes are excluded from the sitemap.
-
-The dedicated WAIA Tally form retains hidden fields `s`, `product` and `enquiry_type`. Handoffs preserve WAIA walkthrough context, or procurement context for existing procurement CTAs; `direct` omits `s`. `/see-waia/` remains available as a campaign or manually shared conversion page. No cookies, visitor IDs, database or new analytics platform are introduced. The `waia:analytics-objection` `localStorage` value remembers a visitor's Cloudflare analytics objection. Tally remains the completion record; a handoff is not a submission. Run `node --test scripts/source-attribution.test.mjs` for the targeted regression suite.
-
-More detail is in `docs/source-attribution.md`.
-
-## Workplace AI Visibility Check
-
-The free check gives managers seven practical questions about current AI use, affected work, information entered, human review, local practices, manager visibility and capacity. It groups answers as visible, partly visible or unclear and prints a short set of next questions. The dedicated Tally lead form is pending before launch; answers and notes remain in the visitor's browser tab. The site continues to use Cloudflare Web Analytics only. See `docs/visibility-check.md` for the form, lead retrieval and measurement flow.
-
-## Shared Legal Documents
-
-WAIA-specific Terms, AI Use Statement and Data & Privacy remain on `waia.co.uk` at `/terms/`, `/ai-use-statement/` and `/data-privacy/`.
-
-The marketing site is live at `https://waia.co.uk/`. GitHub Pages deployment is active, Cloudflare is the authoritative DNS provider, custom-domain DNS is configured, and HTTPS is enforced. The Visibility Check redemption API is the only server-side route: a dedicated Cloudflare Worker at `/api/visibility-check/redeem` proxies redemption to Apps Script while GitHub Pages remains the origin for the static site.
-
-The standalone legal estate is live over HTTPS. WAIA uses it as the canonical source for shared Nineteen Point Two Ltd legal and procurement documents, independently of the company marketing website:
-
-- [Privacy Notice](https://legal.nineteenpointtwo.com/privacy/)
-- [Cookie Notice](https://legal.nineteenpointtwo.com/cookies/)
-- [Data Processing Agreement](https://legal.nineteenpointtwo.com/data-processing-agreement/)
-- [Security Summary](https://legal.nineteenpointtwo.com/security/)
-- [Subprocessors](https://legal.nineteenpointtwo.com/subprocessors/)
-
-No legacy redirects have yet been introduced as part of this migration. Issue #7 remains subject to the owner confirmations recorded in [the legal/procurement review](docs/legal-procurement-review.md).
-
-## Brand Notes
-
-WAIA uses the approved **Open Wayfinder** identity.
-
-Brand idea: **Make the next move visible.**
-
-The canonical brand source and documentation pack remains in `brand/`:
-
-- `brand/README.md`
-- `brand/visual-system.md`
-- `brand/accessibility.md`
-- `brand/tokens.css`
-- `brand/assets/`
-- `brand/implementation-brief.md`
-
-Production web assets are copied into public paths under `assets/`:
-
-- `assets/brand/waia-mark-gradient.svg`
-- `assets/brand/waia-mark-teal.svg`
-- `assets/brand/waia-mark-white.svg`
-- `assets/brand/waia-mark-mono-dark.svg`
-- `assets/brand/waia-lockup-dark.svg`
-- `assets/brand/waia-lockup-light.svg`
-- `assets/brand/waia-lockup-compact-dark.svg`
-- `assets/favicon/favicon.svg`
-- `assets/favicon/favicon.ico`
-- `assets/favicon/favicon-32.png`
-- `assets/favicon/favicon-512.png`
-- `assets/favicon/apple-touch-icon.png`
-- `assets/favicon/waia-favicon.svg`
-- `assets/favicon/waia-favicon.ico`
-- `assets/favicon/waia-favicon-32.png`
-- `assets/favicon/waia-apple-touch-icon.png`
-
-The `waia-*` favicon filenames are used in page HTML so browser and CDN caches do not continue serving an older generic `favicon.ico`.
-
-Semantic colour rules:
-
-- Operating navy is used for navigation, product shell and high-level product framing.
-- Clarity white is used for instruction, decision content and important explanation.
-- Deep teal is used for readable action, links and emphasis on light surfaces.
-- Bright cyan is reserved for active states, focus and illumination on dark surfaces.
-- Bright cyan should not be used as body text on pale backgrounds.
-
-Accessibility expectations:
-
-- Meaningful text and controls should meet WCAG AA contrast expectations.
-- Light surfaces should use dark primary text, secondary slate text and deep-teal emphasis.
-- Dark surfaces should use white or muted light text with bright cyan as an accent.
-- All links and controls need visible hover and keyboard focus states.
-
-This branch is the marketing-site pilot only. Product-platform implementation of the WAIA identity and Clarity Panel pattern will follow separately.
-
-## Remaining Work
-
-- Cloudflare Web Analytics is installed manually through the beacon stored in this repository.
-- Automatic Cloudflare RUM injection is not relied upon.
-- The site does not use Apollo website tracking or Cookiebot.
-- Behavioural and marketing tracking should not be added without an approved requirement.
-- The repository legal/procurement accuracy review was completed on 9 September 2026. See [the review record](docs/legal-procurement-review.md) for corrections and the specific shared-document, supplier-confirmation and post-deployment checks still blocking issue #7 closure. This is not a legal opinion or blanket sign-off of supplier controls.
-- Redirect old Nineteen Point Two WAIA and workplace AI Insights routes only after the WAIA Insights branch and the corresponding Nineteen Point Two redirect branch have both been reviewed, merged and verified live.
-
-## Source Used For Initial Migration
-
-Source repository:
-
-`/Users/bencooper/Documents/Codex/2026-05-02/work-in-the-github-repo-for`
-
-Original source pages and assets:
-
-- `waia/index.html`
-- `waia/how-it-works/index.html`
-- `waia-terms/index.html`
-- `waia-ai-use-statement/index.html`
-- `assets/css/workplace-ai-academy.css`
-- `assets/css/legal.css`
-- `assets/js/nav.js`
-- `assets/images/waia/`
-- `assets/favicon/favicon.svg`
-
-Additional Insights migration source:
-
-- `src/content/insights/`
-- `scripts/build-insights.mjs`
-- `insights/`
-- `assets/css/insights.css`
+No Cloudflare project, custom domain, Worker or Tally form setting is changed by this repository.

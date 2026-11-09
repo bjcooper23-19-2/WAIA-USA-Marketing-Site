@@ -1,3 +1,5 @@
+> **US repository note (9 November 2026):** The US Pages build publishes only the Insights index, which links to the original UK articles. The copied article HTML is regenerated and tested in this repository but excluded from `dist/` until distinct US editions are approved.
+
 # WAIA Insights
 
 WAIA Insights is the permanent editorial home for WAIA's point of view on the transformation of work.

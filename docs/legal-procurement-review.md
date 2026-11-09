@@ -1,3 +1,5 @@
+> **US repository note (9 November 2026):** This is the inherited UK legal review, not approval of US terms, privacy notices, transfers or commercial terms. See `docs/us-launch.md` for owner decisions.
+
 # Legal and procurement accuracy review
 
 Reviewed 9 September 2026 for issue #7 against marketing main `49cf9d1` and
