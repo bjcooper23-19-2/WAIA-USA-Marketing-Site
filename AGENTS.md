@@ -45,3 +45,9 @@ Keep the Open Wayfinder identity and evidence-led positioning. The US Pages
 build omits the inherited UK Visibility Check and copied Insights articles.
 See `docs/us-launch.md` for route boundaries, dependencies and owner decisions.
 Do not attach the inherited UK Worker route from this repository.
+
+## Editorial visual production
+
+For WAIA editorial graphics, LinkedIn visuals, infographics, educational diagrams and social carousels, use the shared [editorial-visual-production skill](https://github.com/bjcooper23-19-2/codex-operating-system/blob/main/skills/editorial-visual-production/SKILL.md) alongside `visual-explainer` when teaching a concept. Read this repository's current WAIA doctrine, audience/channel copy and approved `brand/` assets first. This applies to visual content produced for both UK and USA audiences; localise spelling, sources and claims for the intended market without changing the core brand identity.
+
+Start with the argument, not a visual template. The two approved creative references are quality benchmarks, not recurring layouts. Choose the illustration or information design for the subject; check recent visuals to avoid repeated compositions. Use canonical Open Wayfinder SVGs, not generated logos. Render critical copy, labels, figures and connectors in editable deterministic layout; inspect full-size and phone-size exports, including text collisions, diagram geometry, brand fidelity and unsupported claims. No automatic publishing, scheduling or deployment. Do not copy the shared skill into this repository.
