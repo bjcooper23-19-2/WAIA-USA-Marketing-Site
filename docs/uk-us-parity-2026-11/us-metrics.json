@@ -1,0 +1,405 @@
+[
+  {
+    "route": "/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/how-it-works/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/how-it-works/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/who-its-for/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/who-its-for/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/pricing/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/pricing/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/insights/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/insights/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/workplace-ai-visibility-check/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/workplace-ai-visibility-check/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/see-waia/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/see-waia/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/data-privacy/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/data-privacy/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "route": "/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/how-it-works/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/how-it-works/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/who-its-for/",
+    "brokenEager": [
+      "http://127.0.0.1:4174/assets/brand/waia-mark-gradient.svg"
+    ],
+    "canonical": "https://waiausa.com/who-its-for/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390,
+    "recheckedBrokenEager": []
+  },
+  {
+    "route": "/pricing/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/pricing/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/insights/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/insights/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/workplace-ai-visibility-check/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/workplace-ai-visibility-check/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/see-waia/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/see-waia/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/data-privacy/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/data-privacy/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "route": "/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/how-it-works/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/how-it-works/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/who-its-for/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/who-its-for/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/pricing/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/pricing/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/insights/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/insights/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/workplace-ai-visibility-check/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/workplace-ai-visibility-check/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/see-waia/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/see-waia/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/data-privacy/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/data-privacy/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/how-it-works/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/how-it-works/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/who-its-for/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/who-its-for/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/pricing/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/pricing/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/insights/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/insights/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/workplace-ai-visibility-check/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/workplace-ai-visibility-check/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/see-waia/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/see-waia/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/data-privacy/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/data-privacy/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  {
+    "route": "/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/how-it-works/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/how-it-works/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/who-its-for/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/who-its-for/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/pricing/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/pricing/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/insights/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/insights/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/workplace-ai-visibility-check/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/workplace-ai-visibility-check/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/see-waia/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/see-waia/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "/data-privacy/",
+    "brokenEager": [],
+    "canonical": "https://waiausa.com/data-privacy/",
+    "fonts": "loaded",
+    "h1": 1,
+    "lang": "en-US",
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

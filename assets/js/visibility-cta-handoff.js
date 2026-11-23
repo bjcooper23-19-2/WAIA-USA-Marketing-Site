@@ -1,5 +1,5 @@
 (() => {
-  const destination = "/see-waia/";
+  const destination = "/workplace-ai-visibility-check/";
   let forwarded = false;
   let observer;
   let timeout;

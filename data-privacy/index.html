@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <link rel="stylesheet" href="/assets/css/workplace-ai-academy.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/css/editorial-pages.css?v=20261122-2"
+    />
+    <link rel="stylesheet" href="/assets/css/legal-utility.css?v=20261122-1" />
     <link rel="canonical" href="https://waiausa.com/data-privacy/" />
     <link rel="alternate" hreflang="en-GB" href="https://waia.co.uk/data-privacy/" />
     <link rel="alternate" hreflang="en-US" href="https://waiausa.com/data-privacy/" />
@@ -41,49 +45,52 @@
       href="/assets/favicon/waia-apple-touch-icon.png"
     />
   </head>
-  <body class="product-waia">
-    <div class="noise"></div>
+  <body class="editorial-page privacy-page">
     <div class="site">
-      <header>
-        <nav class="nav" aria-label="Main navigation">
-          <a class="brand waia-brand" href="/" aria-label="WAIA home">
-            <img
-              class="brand-logo"
-              src="/assets/brand/waia-lockup-dark.svg"
+      <a class="skip-link" href="#main">Skip to content</a>
+      <header class="site-header">
+        <div class="wrap header-inner nav">
+          <a class="brand" href="/" aria-label="WAIA home"
+            ><img
+              src="/assets/brand/waia-lockup-light.svg"
               alt="WAIA"
               width="360"
               height="92"
-            />
-          </a>
-          <button
-            class="nav-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="site-navigation"
+          /></a>
+          <nav
+            class="nav-links"
+            id="site-navigation"
+            aria-label="Main navigation"
           >
-            Menu
-          </button>
-          <div class="nav-links" id="site-navigation">
             <a href="/">Product</a>
             <a href="/how-it-works/">How it works</a>
             <a href="/pricing/">Pricing</a>
             <a href="/insights/">Insights</a>
-          </div>
-          <div class="nav-actions">
-            <a class="nav-sign-in" href="https://app.waia.co.uk/login"
+            <a class="mobile-sign-in" href="https://app.waia.co.uk/login"
               >Sign in</a
             >
+          </nav>
+          <div class="header-actions">
+            <a class="sign-in" href="https://app.waia.co.uk/login">Sign in</a>
             <a
-              class="nav-cta"
+              class="button button-small"
               href="https://tally.so/r/objzGM?product=WAIA&amp;enquiry_type=walkthrough&amp;s=us_direct"
               target="_blank"
               rel="noopener noreferrer"
               >See WAIA</a
             >
           </div>
-        </nav>
+          <button
+            class="menu-toggle nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+          >
+            Menu <span aria-hidden="true">☰</span>
+          </button>
+        </div>
       </header>
-      <main id="top">
+      <main id="main">
         <section
           class="hero compact-hero inner-page-hero has-wayfinder-watermark"
         >
@@ -139,11 +146,12 @@
           <div class="container">
             <div class="section-head wide">
               <div class="eyebrow">Operator identity</div>
-              <h2>WAIA is a Nineteen Point Two product.</h2>
+              <h2>WAIA is operated by Nineteen Point Two Limited.</h2>
               <p>
                 Nineteen Point Two Ltd operates the service and is responsible
                 for the customer relationship, legal terms and shared product
-                documentation. WAIA is operated from the UK. Hosting locations, subprocessors, international transfers, and any US-specific requirements should be reviewed in the applicable customer documents before contracting.
+                documentation. WAIA is UK-built and designed for organizations
+                managing workplace AI internationally.
               </p>
             </div>
           </div>
@@ -155,12 +163,10 @@
               <div class="eyebrow">What WAIA records</div>
               <h2>Records that support workplace AI evidence.</h2>
               <p>
-                WAIA records identifiable learner activity, progress, guidance
-                acknowledgments, user-submitted application evidence, and
-                administrator review decisions. Authorized customer
-                administrators can see relevant records for management review.
-                WAIA does not continuously capture employee prompts or all
-                workplace AI activity.
+                WAIA records product activity needed to support learning,
+                guidance, acknowledgment, application evidence, management
+                review and follow-up. It doesn’t imply capture of every prompt
+                or all workplace AI activity.
               </p>
             </div>
             <div class="outcomes-grid">
@@ -276,11 +282,15 @@
               <div class="eyebrow">Documents</div>
               <h2>Legal, security and procurement documents.</h2>
               <p>
-                WAIA-specific documents are hosted on this site. Shared company
-                documents remain with Nineteen Point Two Ltd.
+                WAIA-specific documents are hosted on this site. Nineteen Point Two Ltd remains the UK operator. US buyers should review hosting locations, subprocessors, international transfers and the applicable customer documents before contracting.
               </p>
             </div>
             <div class="document-grid">
+              <article class="doc-card">
+                <h3>Website Terms of Use</h3>
+                <p>Terms for browsing the WAIA websites, Insights and public assessments.</p>
+                <a href="/website-terms/">Read website terms</a>
+              </article>
               <article class="doc-card">
                 <h3>WAIA Terms of Service</h3>
                 <p>Commercial and usage terms for customer access to WAIA.</p>
@@ -297,11 +307,10 @@
               <article class="doc-card">
                 <h3>Privacy Notice</h3>
                 <p>
-                  Shared privacy information maintained by Nineteen Point Two
-                  Ltd.
+                  Privacy information for WAIA visitors, contacts and users.
                 </p>
                 <a
-                  href="https://legal.nineteenpointtwo.com/privacy/"
+                  href="/privacy/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Open Privacy Notice</a
@@ -310,11 +319,10 @@
               <article class="doc-card">
                 <h3>Cookie Notice</h3>
                 <p>
-                  Shared cookie information maintained by Nineteen Point Two
-                  Ltd.
+                  Cookies and browser storage used by WAIA websites and the application.
                 </p>
                 <a
-                  href="https://legal.nineteenpointtwo.com/cookies/"
+                  href="/cookies/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Open Cookie Notice</a
@@ -327,9 +335,9 @@
               </article>
               <article class="doc-card">
                 <h3>Data Processing Agreement</h3>
-                <p>Shared data processing terms for customer personal data.</p>
+                <p>WAIA data processing terms for customer personal data.</p>
                 <a
-                  href="https://legal.nineteenpointtwo.com/data-processing-agreement/"
+                  href="/data-processing-agreement/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Open DPA</a
@@ -338,11 +346,10 @@
               <article class="doc-card">
                 <h3>Security</h3>
                 <p>
-                  Shared security summary for WAIA and Nineteen Point Two Ltd
-                  services.
+                  Security summary for the WAIA application.
                 </p>
                 <a
-                  href="https://legal.nineteenpointtwo.com/security/"
+                  href="/security/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Open security summary</a
@@ -351,11 +358,10 @@
               <article class="doc-card">
                 <h3>Subprocessors</h3>
                 <p>
-                  Current subprocessor information maintained by Nineteen Point
-                  Two Ltd.
+                  Current WAIA supplier information for customer personal data.
                 </p>
                 <a
-                  href="https://legal.nineteenpointtwo.com/subprocessors/"
+                  href="/subprocessors/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Open subprocessors</a
@@ -388,39 +394,47 @@
           </div>
         </section>
       </main>
-      <footer>
-        <div class="footer-grid">
-          <span>&copy; 2026 Nineteen Point Two Ltd.</span>
-          <span>WAIA is a Nineteen Point Two product.</span>
-          <span>
-            <a href="/">Product</a> |
-            <a href="/how-it-works/">How it works</a> |
-            <a href="/who-its-for/">Who it’s for</a> |
-            <a href="/insights/">Insights</a> |
-            <a href="/pricing/">Pricing</a> |
-            <a href="/data-privacy/">Data &amp; privacy</a>
-          </span>
-          <span>
-            <a href="/terms/">Terms</a> |
-            <a href="/ai-use-statement/">AI use statement</a>
-            |
-            <a
-              href="https://legal.nineteenpointtwo.com/privacy/"
+      <footer class="footer">
+        <div class="wrap footer-top">
+          <img
+            src="/assets/brand/waia-lockup-dark.svg"
+            alt="WAIA"
+            width="360"
+            height="92"
+          />
+          <p>Make the next move visible.</p>
+        </div>
+        <div class="wrap footer-links">
+          <div>
+            <a href="/">Product</a><a href="/how-it-works/">How it works</a
+            ><a href="/who-its-for/">Who it's for</a
+            ><a href="/insights/">Insights</a><a href="/pricing/">Pricing</a>
+          </div>
+          <div>
+            <a href="/data-privacy/">Data &amp; privacy</a
+            ><a href="/terms/">Terms</a
+            ><a href="/ai-use-statement/">AI use statement</a
+            ><a
+              href="/privacy/"
               target="_blank"
               rel="noopener noreferrer"
               >Privacy</a
-            >
-            |
-            <a
-              href="https://legal.nineteenpointtwo.com/cookies/"
+            ><a
+              href="/cookies/"
               target="_blank"
               rel="noopener noreferrer"
               >Cookies</a
-            >
-            |
-            <a href="/analytics-preferences/">Analytics preferences</a>
-          </span>
-          <span role="group" aria-label="Market">Market: <a href="https://waia.co.uk/">UK</a> | <a href="https://waiausa.com/" aria-current="page">USA (current)</a></span>
+            ><a href="/analytics-preferences/">Analytics preferences</a>
+          </div>
+        </div>
+        <div class="wrap footer-bottom">
+          <span
+            >© 2026 Nineteen Point Two Limited trading as WAIA.</span
+          ><span
+            >Market:
+            <a href="https://waia.co.uk/">UK</a> ·
+            <a href="https://waiausa.com/" aria-current="page">USA (current)</a></span
+          >
         </div>
       </footer>
     </div>

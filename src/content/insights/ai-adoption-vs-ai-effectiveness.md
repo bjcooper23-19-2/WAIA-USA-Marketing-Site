@@ -1,20 +1,20 @@
 ---
 title: AI Adoption Is Easy to Measure. AI Effectiveness Isn’t.
 metaTitle: AI Adoption Is Easy to Measure. AI Effectiveness Isn’t. | WAIA
-metaDescription: Access, activity and training completion show whether AI is being used. They don’t show whether it’s improving judgement, consistency or the quality of work.
+metaDescription: Access, activity and training completion show whether AI is being used. They don’t show whether it’s improving judgment, consistency or the quality of work.
 ogTitle: AI Adoption Is Easy to Measure. AI Effectiveness Isn’t.
-ogDescription: Access, activity and training completion show whether AI is being used. They don’t show whether it’s improving judgement, consistency or the quality of work.
+ogDescription: Access, activity and training completion show whether AI is being used. They don’t show whether it’s improving judgment, consistency or the quality of work.
 slug: ai-adoption-vs-ai-effectiveness
 date: 2026-07-13
 category: Measurement
 readingTime: 6 min read
-excerpt: Access, activity and training completion show whether AI is being used. They don’t show whether it’s improving judgement, consistency or the quality of work.
+excerpt: Access, activity and training completion show whether AI is being used. They don’t show whether it’s improving judgment, consistency or the quality of work.
 tags: workplace AI, AI adoption, AI effectiveness, manager visibility, operational evidence
 ---
 
-Most organisations adopting AI begin with the metrics that are easiest to gather.
+Most organizations adopting AI begin with the metrics that are easiest to gather.
 
-They can report how many licences have been issued, who has access, how often tools are being used, how many people have completed training and, in some cases, how much model usage or prompt activity is taking place.
+They can report how many licenses have been issued, who has access, how often tools are being used, how many people have completed training and, in some cases, how much model usage or prompt activity is taking place.
 
 These numbers are useful. They show provision, participation and activity.
 
@@ -28,7 +28,7 @@ That is the harder question.
 
 ## Adoption tells you that something is happening
 
-Licence counts provide a picture of access.
+License counts provide a picture of access.
 
 Usage data shows activity.
 
@@ -36,7 +36,7 @@ Training completion demonstrates that people have been given some level of suppo
 
 Prompt volume may show that AI has entered day-to-day work, but it says very little about usefulness or quality. A high volume of prompts could reflect productive use, repeated corrections, poor workflow design or people struggling to get an acceptable result.
 
-These metrics are helpful at the start of an AI programme. They can show whether people are engaging with the tools and whether adoption is beginning to spread.
+These metrics are helpful at the start of an AI program. They can show whether people are engaging with the tools and whether adoption is beginning to spread.
 
 But they do not explain what is changing in the work itself.
 
@@ -50,7 +50,7 @@ All of them may have access to the same tool. All may have completed the same tr
 
 The operating reality could still be very different.
 
-One account manager may use AI to organise complex information into a clear, accurate update and then review it carefully before sending.
+One account manager may use AI to organize complex information into a clear, accurate update and then review it carefully before sending.
 
 Another may produce a polished summary that lacks enough customer context.
 
@@ -60,7 +60,7 @@ From a usage dashboard, all three appear active.
 
 From the customer’s perspective, the quality of the experience may be inconsistent.
 
-That is the limitation of adoption data. It can show that people are using AI, but not whether judgement, output quality or the underlying process is improving.
+That is the limitation of adoption data. It can show that people are using AI, but not whether judgment, output quality or the underlying process is improving.
 
 What looks like broad adoption can still mask operational inconsistency.
 
@@ -81,7 +81,7 @@ This is not an argument for surveillance.
 
 Managers do not need visibility into every prompt or every interaction with an AI tool.
 
-They do need enough evidence to understand how work is changing, where judgement is weakest and where support or clearer boundaries may be required.
+They do need enough evidence to understand how work is changing, where judgment is weakest and where support or clearer boundaries may be required.
 
 Without that visibility, informal habits become established quickly. Some are useful. Some create risk. Most remain invisible until the outcome becomes noticeable elsewhere.
 
@@ -95,7 +95,7 @@ A practical way to assess AI effectiveness is to look at three areas.
 
 ### People
 
-Are employees applying good judgement when deciding where and how to use AI?
+Are employees applying good judgment when deciding where and how to use AI?
 
 Do they know when to check the output, when to involve someone else and when AI is not appropriate for the task?
 
@@ -117,7 +117,7 @@ Are employees respecting agreed boundaries around sensitive or confidential info
 
 Is AI helping people work from better information, or making weak data move faster?
 
-These questions tell leaders far more than a licence count ever could.
+These questions tell leaders far more than a license count ever could.
 
 ## Measure the work, not the tool
 
@@ -126,7 +126,7 @@ AI effectiveness should be assessed through evidence from the work itself.
 That could include:
 
 - reviewing samples of AI-assisted output for quality and consistency
-- asking managers where judgement or follow-up is still required
+- asking managers where judgment or follow-up is still required
 - gathering feedback from customers or internal stakeholders
 - tracking changes in cycle times, error rates and rework alongside changes in AI use
 - identifying informal workarounds and deciding whether they are useful, risky or unnecessary
@@ -143,16 +143,16 @@ What is changing in the work because of AI?
 
 AI adoption is relatively easy to count.
 
-AI effectiveness is harder because it requires organisations to look beyond activity and into judgement, workflow quality, management visibility and operating outcomes.
+AI effectiveness is harder because it requires organizations to look beyond activity and into judgment, workflow quality, management visibility and operating outcomes.
 
 That is where the real value, and the real risk, sits.
 
-The businesses that make the most of workplace AI will not necessarily be the ones with the highest usage or the most licences.
+The businesses that make the most of workplace AI will not necessarily be the ones with the highest usage or the most licenses.
 
-They will be the ones that can see where AI is improving judgement, reducing operational drag, strengthening consistency and creating evidence worth acting on.
+They will be the ones that can see where AI is improving judgment, reducing operational drag, strengthening consistency and creating evidence worth acting on.
 
 AI adoption tells you whether people are using the tool.
 
-AI effectiveness tells you whether the organisation is getting better at the work.
+AI effectiveness tells you whether the organization is getting better at the work.
 
 Those are not the same thing.

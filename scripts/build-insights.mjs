@@ -5,7 +5,6 @@ const root = process.cwd();
 const contentDir = path.join(root, "src/content/insights");
 const outputDir = path.join(root, "insights");
 const siteUrl = "https://waiausa.com";
-const originalArticleUrl = (slug) => `https://waia.co.uk/insights/${slug}/`;
 const loginUrl = "https://app.waia.co.uk/login";
 const walkthroughUrl =
   "https://tally.so/r/objzGM?product=WAIA&amp;enquiry_type=walkthrough&amp;s=us_direct";
@@ -222,47 +221,37 @@ const navLink = (href, label, current = false) =>
   `<a href="${href}"${current ? ' aria-current="page"' : ""}>${label}</a>`;
 
 const header = (current = "") => `
-<header>
-  <nav class="nav" aria-label="Main navigation">
-    <a class="brand waia-brand" href="/" aria-label="WAIA home">
-      <img class="brand-logo" src="/assets/brand/waia-lockup-dark.svg" alt="WAIA" width="360" height="92" />
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
-    <div class="nav-links" id="site-navigation">
+<header class="site-header">
+  <div class="wrap header-inner nav">
+    <a class="brand" href="/" aria-label="WAIA home"><img src="/assets/brand/waia-lockup-light.svg" alt="WAIA" width="360" height="92" /></a>
+    <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
       ${navLink("/", "Product", current === "product")}
       ${navLink("/how-it-works/", "How it works", current === "how-it-works")}
       ${navLink("/pricing/", "Pricing", current === "pricing")}
       ${navLink("/insights/", "Insights", current === "insights")}
+      <a class="mobile-sign-in" href="${loginUrl}">Sign in</a>
+    </nav>
+    <div class="header-actions">
+      <a class="sign-in" href="${loginUrl}">Sign in</a>
+      <a class="button button-small" href="${walkthroughUrl}" target="_blank" rel="noopener noreferrer">See WAIA</a>
     </div>
-    <div class="nav-actions">
-      <a class="nav-sign-in" href="${loginUrl}">Sign in</a>
-      <a class="nav-cta" href="${walkthroughUrl}" target="_blank" rel="noopener noreferrer">See WAIA</a>
-    </div>
-  </nav>
+    <button class="menu-toggle nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu <span aria-hidden="true">☰</span></button>
+  </div>
 </header>`;
 
-const footer = (marketSwitcher = "") => `
-<footer>
-  <div class="footer-grid">
-    <span>&copy; 2026 Nineteen Point Two Ltd.</span>
-    <span>WAIA is a Nineteen Point Two product.</span>
-    <span>
-      <a href="/">Product</a> |
-      <a href="/how-it-works/">How it works</a> |
-      <a href="/who-its-for/">Who it’s for</a> |
-      <a href="/insights/">Insights</a> |
-      <a href="/pricing/">Pricing</a> |
-      <a href="/data-privacy/">Data &amp; privacy</a>
-    </span>
-    <span>
-      <a href="/terms/">Terms</a> |
-      <a href="/ai-use-statement/">AI use statement</a>
-      |
-      <a href="https://legal.nineteenpointtwo.com/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>
-      |
-      <a href="https://legal.nineteenpointtwo.com/cookies/" target="_blank" rel="noopener noreferrer">Cookies</a> |
-      <a href="/analytics-preferences/">Analytics preferences</a>
-    </span>${marketSwitcher}
+const footer = `
+<footer class="footer">
+  <div class="wrap footer-top">
+    <img src="/assets/brand/waia-lockup-dark.svg" alt="WAIA" width="360" height="92" />
+    <p>Make the next move visible.</p>
+  </div>
+  <div class="wrap footer-links">
+    <div><a href="/">Product</a><a href="/how-it-works/">How it works</a><a href="/who-its-for/">Who it's for</a><a href="/insights/">Insights</a><a href="/pricing/">Pricing</a></div>
+    <div><a href="/data-privacy/">Data &amp; privacy</a><a href="/terms/">Terms</a><a href="/ai-use-statement/">AI use statement</a><a href="/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a><a href="/cookies/" target="_blank" rel="noopener noreferrer">Cookies</a><a href="/analytics-preferences/">Analytics preferences</a></div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Nineteen Point Two Limited trading as WAIA.</span>
+    <span>Market: <a href="https://waia.co.uk/">UK</a> · <a href="https://waiausa.com/" aria-current="page">USA (current)</a></span>
   </div>
 </footer>`;
 
@@ -293,9 +282,13 @@ const documentShell = ({
 }) => `<!doctype html>
 <html lang="en-US">
   <head>
-    <link rel="stylesheet" href="/assets/css/workplace-ai-academy.css" />
-    <link rel="stylesheet" href="/assets/css/insights.css" />
+    <link rel="stylesheet" href="/assets/css/editorial-pages.css?v=20261122-3" />
+    <link rel="stylesheet" href="/assets/css/insights.css?v=20261122-3" />
+    <link rel="preload" href="/assets/fonts/instrument-serif-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/assets/fonts/dm-sans-variable.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="canonical" href="${canonical}" />
+    <link rel="alternate" hreflang="en-GB" href="${canonical.replace(siteUrl, "https://waia.co.uk")}" />
+    <link rel="alternate" hreflang="en-US" href="${canonical}" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(title)}</title>
@@ -312,13 +305,12 @@ const documentShell = ({
     ${faviconLinks}
     ${structuredData ? jsonLdScript(structuredData) : ""}
   </head>
-  <body class="product-waia insights-page">
-    <div class="noise"></div>
+  <body class="editorial-page insights-page">
     <div class="site">
+      <a class="skip-link" href="#main">Skip to content</a>
       ${header("insights")}
       ${body}
-      ${footer(canonical === `${siteUrl}/insights/` ? `
-    <span role="group" aria-label="Market">Market: <a href="https://waia.co.uk/">UK</a> | <a href="https://waiausa.com/" aria-current="page">USA (current)</a></span>` : "")}
+      ${footer}
     </div>
     <script src="/assets/js/nav.js" defer></script>
     <script src="/assets/js/source-attribution.js" defer></script>
@@ -364,7 +356,7 @@ const loadArticles = async () => {
       html: markdownToHtml(body),
       formattedDate: formatDate(data.date),
       readingTime: data.readingTime || readingTime(body),
-      url: originalArticleUrl(data.slug),
+      url: `${siteUrl}/insights/${data.slug}/`,
       dateModified: data.dateModified || data.date,
     });
   }
@@ -375,16 +367,16 @@ const loadArticles = async () => {
 const renderIndex = (articles) => {
   const cards = articles
     .map(
-      (article) => `
-        <article class="insight-card">
+      (article, index) => `
+        <article class="insight-card${index === 0 ? " insight-card-featured" : ""}">
           <div class="article-meta">
             <time datetime="${article.date}">${article.formattedDate}</time>
             <span>${escapeHtml(article.category)}</span>
             <span>${escapeHtml(article.readingTime)}</span>
           </div>
-          <h3>${escapeHtml(article.title.replaceAll("organisations", "organizations"))}</h3>
-          <p>${escapeHtml(article.excerpt.replaceAll("organisations", "organizations"))}</p>
-          <a class="insight-read-link" href="${article.url}">Read insight on WAIA UK</a>
+          <h3>${escapeHtml(article.title)}</h3>
+          <p>${escapeHtml(article.excerpt)}</p>
+          <a class="insight-read-link" href="/insights/${article.slug}/">Read insight</a>
         </article>`,
     )
     .join("\n");
@@ -409,14 +401,14 @@ const renderIndex = (articles) => {
       },
       hasPart: articles.map((article) => ({
         "@type": "Article",
-        headline: article.title.replaceAll("organisations", "organizations"),
+        headline: article.title,
         articleSection: article.category,
         url: article.url,
         datePublished: article.date,
       })),
     },
     body: `
-      <main id="top">
+      <main id="main">
         <section class="insights-hero">
           <div class="container">
             <div class="eyebrow">Insights</div>
@@ -471,8 +463,6 @@ const renderArticle = (article) =>
     ogTitle: article.ogTitle || article.title,
     ogDescription:
       article.ogDescription || article.metaDescription || article.excerpt,
-    // These articles are copied from the UK site. Keep one canonical article
-    // URL until a distinct US edition is written and approved.
     canonical: article.url,
     type: "article",
     publishedDate: `${article.date}T00:00:00Z`,
@@ -489,11 +479,11 @@ const renderArticle = (article) =>
         "@type": "Organization",
         name: "WAIA",
         legalName: "Nineteen Point Two Ltd",
-        url: "https://waia.co.uk",
+        url: siteUrl,
       },
     },
     body: `
-      <main id="top">
+      <main id="main">
         <article class="insight-article">
           <header class="article-header">
             <div class="article-shell">
@@ -514,10 +504,10 @@ const renderArticle = (article) =>
                 article.visibilityCheckCta === "true"
                   ? `
                 <aside class="insight-tool-cta" aria-labelledby="visibility-check-cta-title">
-                  <div class="eyebrow">See WAIA</div>
-                  <h2 id="visibility-check-cta-title">See how managers review workplace AI evidence.</h2>
-                  <p>Ask for a walkthrough focused on the work, the evidence behind it, and the decisions your team needs to make.</p>
-                  <a class="btn primary" href="/see-waia/">Request a walkthrough →</a>
+                  <div class="eyebrow">Free working tool</div>
+                  <h2 id="visibility-check-cta-title">Check what managers can actually see.</h2>
+                  <p>The free Workplace AI Visibility Check gives you seven practical questions about current use, affected work, human review and capacity. Allow around 10–15 minutes and take a practical result back into the business.</p>
+                  <a class="btn primary" href="/workplace-ai-visibility-check/">Start the Workplace AI Visibility Check →</a>
                 </aside>`
                   : ""
               }

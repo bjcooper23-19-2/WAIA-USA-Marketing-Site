@@ -245,7 +245,7 @@ test("a fresh request can be issued after expiry", () => {
   assert.notEqual(rows[1][5], rows[2][5]);
 });
 
-test("UK-bound check source remains intact while the US Insight CTA goes to See WAIA", () => {
+test("US Insight CTA enters the existing UK-hosted Visibility Check journey", () => {
   const article = readFileSync(
     new URL(
       "../insights/ai-adoption-is-rising-is-it-working/index.html",
@@ -277,15 +277,18 @@ test("UK-bound check source remains intact while the US Insight CTA goes to See 
   );
   assert.match(
     article,
-    /class="insight-tool-cta"[\s\S]*href="\/see-waia\/"/,
+    /class="insight-tool-cta"[\s\S]*href="\/workplace-ai-visibility-check\/"/,
   );
   assert.match(landing, /Request access/);
   assert.match(start, /Access is not immediate/);
   assert.doesNotMatch(start, /href="\/workplace-ai-visibility-check\/check\/"/);
   assert.match(access, /name="robots" content="noindex, nofollow"/);
   assert.match(access, /Continue to the Visibility Check/);
-  assert.match(access, /visibility-check-access\.mjs/);
+  assert.match(access, /visibility-check-uk-handoff\.js/);
   assert.doesNotMatch(access, /cloudflareinsights/);
+  const bridge = readFileSync(new URL("../assets/js/visibility-check-uk-handoff.js", import.meta.url), "utf8");
+  assert.match(bridge, /https:\/\/waia.co.uk\/workplace-ai-visibility-check\/access\/\?token=/);
+  assert.doesNotMatch(bridge, /fetch\(|localStorage|sessionStorage/);
   assert.match(accessScript, /addEventListener\("click"/);
   assert.match(accessScript, /fetch\(redemptionPath/);
   assert.match(accessScript, /method: "POST"/);
@@ -295,6 +298,29 @@ test("UK-bound check source remains intact while the US Insight CTA goes to See 
     accessScript,
     /JSONP|callbackName|createElement\("script"\)/i,
   );
+});
+
+test("US access bridge forwards only one well-formed token to the UK service", () => {
+  const script = readFileSync(new URL("../assets/js/visibility-check-uk-handoff.js", import.meta.url), "utf8");
+  const run = (search) => {
+    const navigations = [];
+    const message = { textContent: "" };
+    vm.runInNewContext(script, {
+      URLSearchParams,
+      window: { location: { search, replace: (url) => navigations.push(url) } },
+      document: { getElementById: () => message },
+    });
+    return { navigations, message: message.textContent };
+  };
+  const token = "a".repeat(96);
+  assert.deepEqual(run(`?token=${token}`).navigations, [
+    `https://waia.co.uk/workplace-ai-visibility-check/access/?token=${token}`,
+  ]);
+  for (const search of ["", "?token=bad", `?token=${token}&token=${token}`]) {
+    const result = run(search);
+    assert.deepEqual(result.navigations, []);
+    assert.match(result.message, /incomplete/);
+  }
 });
 
 function accessHarness({ token = "a".repeat(96), fetchResult } = {}) {

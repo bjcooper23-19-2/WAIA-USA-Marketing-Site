@@ -14,7 +14,7 @@ tags: AI time savings, AI productivity measurement, workplace AI productivity, A
 
 AI is supposed to make work faster.
 
-For many organisations, that assumption is already becoming part of the business case.
+For many organizations, that assumption is already becoming part of the business case.
 
 Employees report saving time. Teams share examples of tasks completed more quickly. Leaders hear that AI is improving productivity.
 
@@ -34,9 +34,9 @@ Was the output reformatted before it could be used?
 
 Did another employee have to verify the work?
 
-And if the organisation genuinely released 30 or 40 minutes of capacity, what happened to that capacity afterwards?
+And if the organization genuinely released 30 or 40 minutes of capacity, what happened to that capacity afterwards?
 
-Until those questions are answered, the organisation has evidence that AI made one part of a task faster.
+Until those questions are answered, the organization has evidence that AI made one part of a task faster.
 
 It does not yet have evidence that AI created meaningful value.
 
@@ -66,7 +66,7 @@ The headline saving is not 50 minutes.
 
 The more useful question is what happened to the **total effort required to produce an acceptable outcome**.
 
-That distinction matters because AI can make generation dramatically faster while moving effort into checking, judgement and rework.
+That distinction matters because AI can make generation dramatically faster while moving effort into checking, judgment and rework.
 
 ## Measure net impact, not gross time saved
 
@@ -117,7 +117,7 @@ That is a very different productivity story.
 
 Both examples can truthfully be described as "AI saved me time".
 
-Only one provides useful evidence that the organisation gained material capacity.
+Only one provides useful evidence that the organization gained material capacity.
 
 ## Time saved is not the end result
 
@@ -127,7 +127,7 @@ Even when AI genuinely reduces the effort required to complete work, there is an
 
 Saving time and creating value are not the same thing.
 
-If a recurring workflow falls from five hours a week to three, the organisation may have released two hours of capacity.
+If a recurring workflow falls from five hours a week to three, the organization may have released two hours of capacity.
 
 But those two hours only become valuable when they are used differently.
 
@@ -146,7 +146,7 @@ Each represents a different kind of value.
 
 And sometimes the right outcome is not greater output.
 
-If AI removes repetitive administrative work and gives an employee more time to think, check, speak to customers or exercise judgement, the benefit may appear in quality, resilience or reduced risk rather than a simple productivity number.
+If AI removes repetitive administrative work and gives an employee more time to think, check, speak to customers or exercise judgment, the benefit may appear in quality, resilience or reduced risk rather than a simple productivity number.
 
 That still matters.
 
@@ -154,7 +154,7 @@ The point is that **released capacity needs a destination**.
 
 ## Capacity released and capacity redeployed are different things
 
-This distinction becomes especially important when organisations start talking about AI ROI.
+This distinction becomes especially important when organizations start talking about AI ROI.
 
 A useful way to think about it is in two stages.
 
@@ -183,7 +183,7 @@ That could mean:
 
 The first question tells you whether AI changed the work.
 
-The second tells you whether the organisation benefited from that change.
+The second tells you whether the organization benefited from that change.
 
 That is a much stronger basis for evaluating AI than simply counting hours.
 
@@ -191,17 +191,17 @@ That is a much stronger basis for evaluating AI than simply counting hours.
 
 This is where AI ROI calculations can quickly become misleading.
 
-Suppose an organisation estimates that AI saves employees 10,000 hours a year.
+Suppose an organization estimates that AI saves employees 10,000 hours a year.
 
 It may be tempting to multiply those hours by an hourly salary cost and declare the result a financial saving.
 
-But if payroll remains exactly the same, the organisation has not necessarily saved that money.
+But if payroll remains exactly the same, the organization has not necessarily saved that money.
 
 What it has potentially created is **capacity**.
 
 Whether that becomes economic value depends on what happens next.
 
-For example, released capacity might allow the organisation to support growth without another hire.
+For example, released capacity might allow the organization to support growth without another hire.
 
 It might reduce reliance on contractors.
 
@@ -213,9 +213,9 @@ Those can create substantial value.
 
 But the causal chain needs to be understood.
 
-**Time saved is evidence of an opportunity. It is not automatically proof of realised ROI.**
+**Time saved is evidence of an opportunity. It is not automatically proof of realized ROI.**
 
-## Individual anecdotes are useful, but they are not yet organisational evidence
+## Individual anecdotes are useful, but they are not yet organizational evidence
 
 A single example tells you something happened once.
 
@@ -269,7 +269,7 @@ But it remains self-reported.
 
 There is a clearer example of what happened before and after AI was introduced into the workflow.
 
-The organisation now has something more tangible to examine.
+The organization now has something more tangible to examine.
 
 ### Repeated
 
@@ -287,7 +287,7 @@ It does make it considerably more defensible.
 
 The important principle is that **confidence should increase with evidence**.
 
-Organisations do not need to dismiss early signals because they are imperfect.
+Organizations do not need to dismiss early signals because they are imperfect.
 
 They do need to avoid presenting weak evidence with false precision.
 
@@ -317,7 +317,7 @@ That is not evidence that AI has failed.
 
 It is evidence that a particular use of AI is not currently creating the expected value.
 
-That is an important thing for an organisation to know.
+That is an important thing for an organization to know.
 
 A credible AI measurement approach has to be capable of showing negative and mixed results as well as positive ones.
 
@@ -329,7 +329,7 @@ It is justification.
 
 There is a risk of going too far in the other direction.
 
-Organisations do not need employees completing detailed timesheets every time they use AI.
+Organizations do not need employees completing detailed timesheets every time they use AI.
 
 The measurement process can easily cost more than the insight it creates.
 
@@ -352,7 +352,7 @@ That is different from trying to prove the ROI of every prompt.
 
 ## Adoption is becoming easier to see. Value is harder.
 
-AI use inside organisations is growing quickly.
+AI use inside organizations is growing quickly.
 
 In July 2026, the [Office for National Statistics reported that self-reported AI use among UK businesses with 10 or more employees had increased from around 12% in late 2023 to around 35%](https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026).
 
@@ -360,7 +360,7 @@ But the same analysis described adoption as relatively shallow.
 
 That distinction matters.
 
-Knowing that employees have access to AI, or even that they are using it, tells us very little about the effect on the organisation.
+Knowing that employees have access to AI, or even that they are using it, tells us very little about the effect on the organization.
 
 The next stage is not simply greater adoption.
 
@@ -370,7 +370,7 @@ It is understanding:
 - what changes when it is used
 - whether those changes repeat
 - whether genuine capacity is released
-- and what the organisation does with that capacity
+- and what the organization does with that capacity
 
 That requires more than usage statistics.
 
@@ -378,7 +378,7 @@ It requires [evidence from the work itself](/how-it-works/).
 
 ## Start with one recurring workflow
 
-The easiest way to begin is not an organisation-wide ROI programme.
+The easiest way to begin is not an organization-wide ROI program.
 
 Pick one recurring piece of work where AI is already being used.
 
@@ -402,7 +402,7 @@ Could a backlog be reduced?
 
 Could future hiring be avoided?
 
-Could people spend more time on judgement, relationships or higher-value activity?
+Could people spend more time on judgment, relationships or higher-value activity?
 
 You may discover meaningful capacity.
 
@@ -416,7 +416,7 @@ All four are useful findings.
 
 Because the objective should not be to prove that AI works.
 
-**It should be to understand where AI is making work better, where it is not, and how the organisation should respond.**
+**It should be to understand where AI is making work better, where it is not, and how the organization should respond.**
 
 The real opportunity is not simply to make existing work faster.
 
@@ -424,4 +424,4 @@ It is to identify where AI releases genuine capacity and make deliberate decisio
 
 **That is how time saved becomes business value.**
 
-**WAIA helps organisations move beyond AI usage and anecdotes by capturing structured evidence from real work, identifying repeatable patterns and surfacing the capacity signals leaders can actually examine and act on.**
+**WAIA helps organizations move beyond AI usage and anecdotes by capturing structured evidence from real work, identifying repeatable patterns and surfacing the capacity signals leaders can actually examine and act on.**

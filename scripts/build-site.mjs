@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -10,8 +10,14 @@ if (token && !/^[a-f0-9]{32}$/.test(token)) {
   throw new Error("WAIA_US_WEB_ANALYTICS_TOKEN must be a 32-character lowercase hex token");
 }
 
-// Keep the publishing boundary explicit. In particular, the existing UK
-// Visibility Check needs a separate US Worker and Apps Script configuration.
+// Keep the publishing boundary explicit. The Visibility Check is entered on
+// the US site, then uses the existing UK-hosted access and assessment service.
+const articles = (await readdir(path.join(root, "src/content/insights")))
+  .filter((file) => file.endsWith(".md"))
+  .map((file) => file.slice(0, -3));
+if (!articles.length || articles.some((slug) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))) {
+  throw new Error("Unexpected Insights article inventory");
+}
 const pages = [
   "index.html",
   "404.html",
@@ -20,10 +26,22 @@ const pages = [
   "pricing/index.html",
   "see-waia/index.html",
   "insights/index.html",
+  ...articles.map((slug) => `insights/${slug}/index.html`),
+  "workplace-ai-visibility-check/index.html",
+  "workplace-ai-visibility-check/start/index.html",
+  "workplace-ai-visibility-check/access/index.html",
   "data-privacy/index.html",
   "terms/index.html",
   "ai-use-statement/index.html",
+  "website-terms/index.html",
+  "privacy/index.html",
+  "cookies/index.html",
+  "data-processing-agreement/index.html",
+  "security/index.html",
+  "subprocessors/index.html",
   "analytics-preferences/index.html",
+  "go/visibility-check/index.html",
+  "go/content/2026-10-evidence-value/index.html",
   ...["ap", "gm", "19", "li", "direct"].map(
     (source) => `go/see-waia/${source}/index.html`,
   ),
@@ -79,10 +97,8 @@ for (const file of ["robots.txt", "sitemap.xml"]) {
 await writeFile(
   path.join(output, "_redirects"),
   [
-    "/workplace-ai-visibility-check/ /see-waia/ 302",
-    "/workplace-ai-visibility-check/* /see-waia/ 302",
-    "/go/visibility-check/ /see-waia/ 302",
-    "/go/content/* /see-waia/ 302",
+    "/workplace-ai-visibility-check/check/ https://waia.co.uk/workplace-ai-visibility-check/check/ 302",
+    "/workplace-ai-visibility-check/results/ https://waia.co.uk/workplace-ai-visibility-check/results/ 302",
     "",
   ].join("\n"),
 );

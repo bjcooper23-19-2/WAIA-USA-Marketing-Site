@@ -1,4 +1,10 @@
-> **US repository note (9 November 2026):** This describes the inherited UK flow. The US Pages build excludes these routes because the Apps Script creates `waia.co.uk` access links and no US redemption Worker is configured. See `docs/us-launch.md`.
+> **US repository note (23 November 2026):** The US site now publishes the
+> localized landing and request pages. The existing Apps Script still emails
+> `waia.co.uk` access links, where the UK Worker redeems them and the assessment
+> and results run. US `/check/` and `/results/` routes redirect to their UK
+> equivalents; a US `/access/` bridge forwards a valid token without redeeming
+> it. No US Worker or duplicate service is configured. See
+> [the parity record](uk-us-parity-2026-11.md).
 
 # Workplace AI Visibility Check
 

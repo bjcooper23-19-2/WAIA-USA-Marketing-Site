@@ -14,7 +14,7 @@ AI is not a strategy, it's a tool.
 
 The problem is what happens once real teams start folding those tools into live work.
 
-## Unseen operational behaviours are already widespread
+## Unseen operational behaviors are already widespread
 
 Signs are everywhere but rarely named. A customer success team where some ask AI to draft renewal emails while others rely on standard templates. Recruiters who paste CV content into unrestricted public AI tools to speed up candidate summaries. Support teams rewriting customer replies through AI shortcuts without the usual quality control.
 
@@ -24,11 +24,11 @@ These habits leave managers with an incomplete picture of how the work is being 
 
 ## Shadow AI: an operational state, not a buzzword
 
-Shadow AI isn't a flashy new concept or a compliance alarm. It's a useful way to describe the status quo in many organisations. The reality where AI usage happens beyond formal channels and management review. Where leadership assumes control and consistency, but day-to-day behaviours tell a different story.
+Shadow AI isn't a flashy new concept or a compliance alarm. It's a useful way to describe the status quo in many organizations. The reality where AI usage happens beyond formal channels and management review. Where leadership assumes control and consistency, but day-to-day behaviors tell a different story.
 
-The issue usually isn’t the tool. It’s that nobody really sees how work is changing underneath them. It’s the gap between what leaders think they see and what teams actually do. It’s about workplace behaviour, workflow inconsistency, unclear expectations, and weak line-of-sight.
+The issue usually isn’t the tool. It’s that nobody really sees how work is changing underneath them. It’s the gap between what leaders think they see and what teams actually do. It’s about workplace behavior, workflow inconsistency, unclear expectations, and weak line-of-sight.
 
-Recognising it means accepting that AI is already part of business-as-usual, not neatly folded into formal rollout plans.
+Recognizing it means accepting that AI is already part of business-as-usual, not neatly folded into formal rollout plans.
 
 ## Where most AI rollout strategies fall short
 
@@ -44,7 +44,7 @@ Managers need guidance they can use to review the work and agree standards acros
 
 ## Governance that enables, not restricts
 
-Governance often defaults to restriction. It slows workflows, adds excessive controls, and prioritises risk avoidance over operational effectiveness. This approach alienates frontline teams and reinforces Shadow AI behaviours as people find workarounds.
+Governance often defaults to restriction. It slows workflows, adds excessive controls, and prioritises risk avoidance over operational effectiveness. This approach alienates frontline teams and reinforces Shadow AI behaviors as people find workarounds.
 
 A better model treats governance as an enabler. Policies should provide clarity on responsible use and safe boundaries while supporting managers in embedding AI within existing workflows.
 
@@ -52,27 +52,27 @@ Rules should tell people what they can do, what needs checking and when to ask f
 
 ## A practical workplace AI adoption path
 
-Organisations move through different stages of workplace AI adoption that reflect operational reality rather than technology ambition:
+Organizations move through different stages of workplace AI adoption that reflect operational reality rather than technology ambition:
 
 - Awareness: General recognition that AI tools exist, but without widespread operational use.
-- Shadow AI: Informal, unmonitored AI usage embedded in fragmented team behaviours and workflow inconsistencies.
+- Shadow AI: Informal, unmonitored AI usage embedded in fragmented team behaviors and workflow inconsistencies.
 - Controlled Adoption: Defined policies and some management oversight, but adoption varies, and execution remains uneven.
 - Workflow Integration: AI is consistently embedded in standard daily processes, with clear manager expectations and visible outcomes.
-- Organisational Enablement: AI adoption is fully operationalised with workplace behaviours aligning with leadership intent, predictable performance, and shared ownership.
+- Organizational Enablement: AI adoption is fully operationalized with workplace behaviors aligning with leadership intent, predictable performance, and shared ownership.
 
-This model is a check on behaviour, visibility, and execution, not about tool count or technical sophistication.
+This model is a check on behavior, visibility, and execution, not about tool count or technical sophistication.
 
 ## Consistency matters more than enthusiasm
 
 Enthusiasm or volume of AI tool usage doesn't equal operating consistency. Without shared guidance, enthusiasm only increases variability and risk. Attention to how teams integrate AI into workflows and how managers guide usage drives reliable commercial outcomes.
 
-Most organisations already have a gap between how leaders think AI is being used and what teams are actually doing day-to-day. Incomplete visibility, inconsistent team behaviours, and manager enablement deficits place pressure on customer experience and recurring revenue.
+Most organizations already have a gap between how leaders think AI is being used and what teams are actually doing day-to-day. Incomplete visibility, inconsistent team behaviors, and manager enablement deficits place pressure on customer experience and recurring revenue.
 
 ## What managers need to see
 
-[WAIA](/) brings shared guidance, learning, acknowledgement and examples from real work into view so managers can see where follow-up is needed.
+[WAIA](/) brings shared guidance, learning, acknowledgment and examples from real work into view so managers can see where follow-up is needed.
 
-Shared standards start with the work people actually do. Managers need to see how AI is used before they can decide what to share, standardise or change.
+Shared standards start with the work people actually do. Managers need to see how AI is used before they can decide what to share, standardize or change.
 
 Start with one recurring task. Ask where AI enters, who reviews the output and whether teams doing the same work follow the same guidance.
 

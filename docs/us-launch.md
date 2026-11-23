@@ -1,5 +1,10 @@
 # US market-validation launch review
 
+> Historical launch record (9 November 2026). The 23 November parity release
+> supersedes its decisions to omit Insights articles and the Visibility Check.
+> See [the current parity record](uk-us-parity-2026-11.md) for public routes,
+> UK-hosted check handoff, verification and remaining owner checks.
+
 Prepared 9 November 2026 from US repository foundation commit `1d19f38aa3fcfc10069381feaba1f4160b6ad2f7`. This is a review and deployment handoff. No Cloudflare project, domain, Worker, Tally form, WAIA application or UK repository was changed.
 
 ## Route decisions
