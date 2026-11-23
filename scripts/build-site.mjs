@@ -58,6 +58,19 @@ const addReferences = (content) => {
     references.add(match[0].slice(1));
   }
 };
+const addCssReferences = (content, stylesheet) => {
+  for (const [, raw] of content.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) {
+    if (/^(?:data:|https?:|#)/.test(raw)) continue;
+    const relative = raw.split(/[?#]/)[0];
+    const asset = relative.startsWith("/")
+      ? relative.slice(1)
+      : path.posix.normalize(path.posix.join(path.posix.dirname(stylesheet), relative));
+    if (!asset.startsWith("assets/") || asset.split("/").includes("..")) {
+      throw new Error(`Unsafe CSS asset reference: ${raw}`);
+    }
+    references.add(asset);
+  }
+};
 
 for (const page of pages) {
   let html = await readFile(path.join(root, page), "utf8");
@@ -84,7 +97,11 @@ while (references.size) {
   const source = path.join(root, asset);
   const destination = path.join(output, asset);
   const content = await readFile(source);
-  if (asset.endsWith(".css")) addReferences(content.toString("utf8"));
+  if (asset.endsWith(".css")) {
+    const css = content.toString("utf8");
+    addReferences(css);
+    addCssReferences(css, asset);
+  }
   await mkdir(path.dirname(destination), { recursive: true });
   await copyFile(source, destination);
   copied.add(asset);

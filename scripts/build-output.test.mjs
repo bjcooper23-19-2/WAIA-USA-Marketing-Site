@@ -119,6 +119,14 @@ test("Pages output contains only supported US routes and working local links", a
   }
   const analytics = await readFile(path.join(dist, "assets/js/analytics.js"), "utf8");
   assert.doesNotMatch(analytics, /9fa2711aed53428980734989cf03178a/);
+  for (const stylesheet of ["homepage.css", "editorial-pages.css"]) {
+    const cssPath = path.join(dist, "assets/css", stylesheet);
+    const css = await readFile(cssPath, "utf8");
+    for (const [, reference] of css.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) {
+      const asset = path.resolve(path.dirname(cssPath), reference);
+      assert.equal(await readFile(asset).then(() => true, () => false), true, `${stylesheet} refers to missing ${reference}`);
+    }
+  }
 });
 
 test("US analytics token is injected only for production builds", async () => {

@@ -1,13 +1,17 @@
 [
   {
     "route": "/",
-    "brokenEager": [],
+    "brokenEager": [
+      "http://127.0.0.1:4174/assets/product-screenshots/2026-09-30/08-admin-home-mobile.jpg",
+      "http://127.0.0.1:4174/assets/brand/waia-lockup-dark.svg"
+    ],
     "canonical": "https://waiausa.com/",
     "fonts": "loaded",
     "h1": 1,
     "lang": "en-US",
     "scrollWidth": 320,
-    "width": 320
+    "width": 320,
+    "recheckedBrokenEager": []
   },
   {
     "route": "/how-it-works/",
@@ -101,16 +105,13 @@
   },
   {
     "route": "/who-its-for/",
-    "brokenEager": [
-      "http://127.0.0.1:4174/assets/brand/waia-mark-gradient.svg"
-    ],
+    "brokenEager": [],
     "canonical": "https://waiausa.com/who-its-for/",
     "fonts": "loaded",
     "h1": 1,
     "lang": "en-US",
     "scrollWidth": 390,
-    "width": 390,
-    "recheckedBrokenEager": []
+    "width": 390
   },
   {
     "route": "/pricing/",
