@@ -77,7 +77,7 @@ test("question names and answer categories match the result logic", () => {
   }
 });
 
-test("the UK-bound check remains in source but is absent from the US sitemap", () => {
+test("US landing is indexable while the UK-hosted private steps are not", () => {
   const route = new URL("../workplace-ai-visibility-check/", import.meta.url);
   const landing = readFileSync(new URL("index.html", route), "utf8");
   const sitemap = readFileSync(
@@ -86,9 +86,9 @@ test("the UK-bound check remains in source but is absent from the US sitemap", (
   );
   assert.match(
     landing,
-    /rel="canonical"\s+href="https:\/\/waia.co.uk\/workplace-ai-visibility-check\/"/,
+    /rel="canonical"\s+href="https:\/\/waiausa.com\/workplace-ai-visibility-check\/"/,
   );
-  assert.doesNotMatch(sitemap, /workplace-ai-visibility-check/);
+  assert.match(sitemap, /https:\/\/waiausa.com\/workplace-ai-visibility-check\//);
   for (const state of ["start", "access", "check", "results"]) {
     const page = readFileSync(new URL(`${state}/index.html`, route), "utf8");
     assert.match(page, /name="robots" content="noindex, nofollow"/);

@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -10,8 +10,14 @@ if (token && !/^[a-f0-9]{32}$/.test(token)) {
   throw new Error("WAIA_US_WEB_ANALYTICS_TOKEN must be a 32-character lowercase hex token");
 }
 
-// Keep the publishing boundary explicit. In particular, the existing UK
-// Visibility Check needs a separate US Worker and Apps Script configuration.
+// Keep the publishing boundary explicit. The Visibility Check is entered on
+// the US site, then uses the existing UK-hosted access and assessment service.
+const articles = (await readdir(path.join(root, "src/content/insights")))
+  .filter((file) => file.endsWith(".md"))
+  .map((file) => file.slice(0, -3));
+if (!articles.length || articles.some((slug) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))) {
+  throw new Error("Unexpected Insights article inventory");
+}
 const pages = [
   "index.html",
   "404.html",
@@ -20,10 +26,22 @@ const pages = [
   "pricing/index.html",
   "see-waia/index.html",
   "insights/index.html",
+  ...articles.map((slug) => `insights/${slug}/index.html`),
+  "workplace-ai-visibility-check/index.html",
+  "workplace-ai-visibility-check/start/index.html",
+  "workplace-ai-visibility-check/access/index.html",
   "data-privacy/index.html",
   "terms/index.html",
   "ai-use-statement/index.html",
+  "website-terms/index.html",
+  "privacy/index.html",
+  "cookies/index.html",
+  "data-processing-agreement/index.html",
+  "security/index.html",
+  "subprocessors/index.html",
   "analytics-preferences/index.html",
+  "go/visibility-check/index.html",
+  "go/content/2026-10-evidence-value/index.html",
   ...["ap", "gm", "19", "li", "direct"].map(
     (source) => `go/see-waia/${source}/index.html`,
   ),
@@ -38,6 +56,19 @@ const references = new Set();
 const addReferences = (content) => {
   for (const match of content.matchAll(/\/assets\/[A-Za-z0-9._/-]+/g)) {
     references.add(match[0].slice(1));
+  }
+};
+const addCssReferences = (content, stylesheet) => {
+  for (const [, raw] of content.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) {
+    if (/^(?:data:|https?:|#)/.test(raw)) continue;
+    const relative = raw.split(/[?#]/)[0];
+    const asset = relative.startsWith("/")
+      ? relative.slice(1)
+      : path.posix.normalize(path.posix.join(path.posix.dirname(stylesheet), relative));
+    if (!asset.startsWith("assets/") || asset.split("/").includes("..")) {
+      throw new Error(`Unsafe CSS asset reference: ${raw}`);
+    }
+    references.add(asset);
   }
 };
 
@@ -66,7 +97,11 @@ while (references.size) {
   const source = path.join(root, asset);
   const destination = path.join(output, asset);
   const content = await readFile(source);
-  if (asset.endsWith(".css")) addReferences(content.toString("utf8"));
+  if (asset.endsWith(".css")) {
+    const css = content.toString("utf8");
+    addReferences(css);
+    addCssReferences(css, asset);
+  }
   await mkdir(path.dirname(destination), { recursive: true });
   await copyFile(source, destination);
   copied.add(asset);
@@ -79,10 +114,8 @@ for (const file of ["robots.txt", "sitemap.xml"]) {
 await writeFile(
   path.join(output, "_redirects"),
   [
-    "/workplace-ai-visibility-check/ /see-waia/ 302",
-    "/workplace-ai-visibility-check/* /see-waia/ 302",
-    "/go/visibility-check/ /see-waia/ 302",
-    "/go/content/* /see-waia/ 302",
+    "/workplace-ai-visibility-check/check/ https://waia.co.uk/workplace-ai-visibility-check/check/ 302",
+    "/workplace-ai-visibility-check/results/ https://waia.co.uk/workplace-ai-visibility-check/results/ 302",
     "",
   ].join("\n"),
 );

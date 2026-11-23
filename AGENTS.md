@@ -42,9 +42,11 @@ legal entity, US hosting, US regulatory certification, approved customer
 results or a USD price without evidence and owner approval.
 
 Keep the Open Wayfinder identity and evidence-led positioning. The US Pages
-build omits the inherited UK Visibility Check and copied Insights articles.
-See `docs/us-launch.md` for route boundaries, dependencies and owner decisions.
-Do not attach the inherited UK Worker route from this repository.
+build publishes localized Insights articles and the Visibility Check landing
+and request pages. Assessment access and results use the existing UK-hosted
+service; this repository does not attach the UK Worker or issue US tokens. See
+`docs/uk-us-parity-2026-11.md` for the current route and service boundary.
+`docs/us-launch.md` records the earlier US launch decisions.
 
 ## Editorial visual production
 

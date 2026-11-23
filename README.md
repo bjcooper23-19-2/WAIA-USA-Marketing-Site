@@ -1,8 +1,10 @@
 # WAIA USA Marketing Site
 
-This repository prepares the separate US marketing site for `https://waiausa.com/`. It starts from the UK WAIA marketing site at source commit `424d63113ecb1b2483be9ca07ed52b0a984e632a`; see [the foundation record](docs/us-site-foundation.md). Nineteen Point Two Ltd remains the UK operator. The application sign-in still points to `https://app.waia.co.uk/login`.
+This repository prepares the American English marketing site for `https://waiausa.com/`. It follows the approved UK site at `https://waia.co.uk/` while keeping the US domain, enquiry attribution, optional analytics property and legal context separate. Nineteen Point Two Ltd remains the UK operator. The application sign-in remains `https://app.waia.co.uk/login`.
 
-WAIA helps managers see where AI is used in recurring work, what changed across a workflow, and which claims about value the evidence supports. The Open Wayfinder brand assets and visual system remain in `brand/`. This site does not claim US data residency, US regulatory certification, customer results, a US legal entity, or a USD price.
+The November 2026 parity implementation uses UK `main` commit `2bb9a24396f2c8ae9c0736783328d715bd3813c7` and US base commit `0c6668d74c3c4d1ff32a491a4be627e790bbd935`. See [the parity record](docs/uk-us-parity-2026-11.md) for route inventory, deliberate regional differences, visual evidence and remaining release checks. The [foundation record](docs/us-site-foundation.md) and [original launch review](docs/us-launch.md) remain historical context.
+
+WAIA helps managers see where AI is used in recurring work, what changed across a workflow and which claims about value the evidence supports. The Open Wayfinder brand assets remain in `brand/`. This site does not claim US data residency, a US legal entity, US regulatory certification, customer outcomes or a USD price.
 
 ## Local build and checks
 
@@ -14,32 +16,26 @@ node --test scripts/*.test.mjs
 python3 -m http.server 4173 --directory dist
 ```
 
-Open `http://127.0.0.1:4173/`. The repeatable build writes only public routes and referenced assets into `dist/`; `dist/` is ignored by Git. Never set the Cloudflare Pages output directory to the repository root.
-
-The Insights source remains in `src/content/insights/`. `node scripts/build-insights.mjs` regenerates the index and eight article files in `insights/`. The Node suite compares every regenerated file byte for byte with the committed output and checks metadata and structured data. The US build publishes only the index. Its cards link to the original articles at `waia.co.uk`, avoiding a second public copy of unchanged articles.
+Open `http://127.0.0.1:4173/`. Cloudflare Pages runs `node scripts/build-site.mjs` and publishes `dist/`, never the repository root. The build includes only declared public pages and referenced assets. It excludes source Markdown, repository guidance, automation, Worker code, tests and private configuration. The UK Worker remains outside this deployment.
 
 ## Public routes
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Product and evidence-led proposition |
-| `/how-it-works/` | Operating model, evidence strength and review |
-| `/who-its-for/` | Buyer fit and management accountability |
-| `/pricing/` | Enquiry-led scope and commercial terms |
-| `/see-waia/` | Walkthrough request |
-| `/insights/` | US editorial index linking to original UK articles |
-| `/data-privacy/` | Product data boundaries and legal links |
-| `/terms/` | Current Nineteen Point Two Ltd WAIA terms |
-| `/ai-use-statement/` | Current product and AI use statement |
-| `/analytics-preferences/` | Saved Cloudflare analytics objection; noindex |
-| `/go/see-waia/{ap,gm,19,li,direct}/` | Noindex Tally handoffs |
+- `/`, `/how-it-works/`, `/who-its-for/`, `/pricing/`, `/see-waia/`
+- `/insights/` and the eight generated article routes in `src/content/insights/`
+- `/workplace-ai-visibility-check/` and `/workplace-ai-visibility-check/start/`
+- `/data-privacy/`, `/terms/`, `/ai-use-statement/`
+- `/privacy/`, `/cookies/`, `/website-terms/`, `/data-processing-agreement/`, `/security/`, `/subprocessors/`
+- `/analytics-preferences/`, the five `/go/see-waia/{ap,gm,19,li,direct}/` handoffs, `/go/visibility-check/` and `/go/content/2026-10-evidence-value/`
+- `/404.html`, `/robots.txt`, `/sitemap.xml`
 
-The copied Workplace AI Visibility Check remains in the repository for reference but is excluded from `dist/`. Its existing Apps Script issues UK access links and the UK Worker is attached to `waia.co.uk`. Requests for the omitted US routes redirect to `/see-waia/` until a separate US flow is configured and tested. The public site has no `/api/visibility-check/redeem` endpoint.
+The Insights generator reads the Markdown source and writes the index and eight article files in `insights/`. The build runs the generator. Tests compare regenerated output byte for byte with the committed files. US articles have US self-canonicals, UK regional alternates and US structured-data URLs. Their editorial claims and examples remain those of the approved UK source; only regional spelling and URLs change.
+
+## Visibility Check
+
+US visitors can request the existing Workplace AI Visibility Check from the localized landing and start pages. The dedicated Tally form and Apps Script still produce UK access links. Redemption, the seven-question assessment and results run on `waia.co.uk` under the existing UK Worker, token expiry and single-use rules. US `/check/` and `/results/` routes redirect there. A noindex US `/access/` bridge forwards a well-formed token to the UK access page without contacting a US API. No US Worker, database, Apps Script or secret is added. A real request, reviewed email and completed assessment remain an owner-operated live test; the repository does not submit production forms or redeem a live token.
 
 ## Enquiries and analytics
 
-The existing Tally form remains the enquiry destination. Its hidden fields `product`, `enquiry_type`, and `s` are preserved. US submissions use `s=us_ap`, `us_gm`, `us_19`, `us_li`, or `us_direct`; source tags are taken only from the current URL and are never stored in the browser. A direct fallback carries `us_direct` even without JavaScript. An approved channel tag can be lost after internal navigation; the lead still retains the US origin through `us_direct`. No new tracking service is used.
+The approved Tally enquiry form remains `https://tally.so/r/objzGM`. Links carry `product=WAIA`, a bounded `enquiry_type` and a direct fallback of `s=us_direct`. `assets/js/source-attribution.js` maps current-page `s=ap`, `gm`, `19` and `li` to the corresponding first-party handoff; `assets/js/tally-handoff.js` sends `us_ap`, `us_gm`, `us_19`, `us_li` or `us_direct`. It does not store source tags in the browser. See [source attribution](docs/source-attribution.md).
 
-The inherited UK Cloudflare Web Analytics token was removed. The optional build variable `WAIA_US_WEB_ANALYTICS_TOKEN` accepts a separate 32-character US property token. With no token, no beacon loads and Tally handoffs continue immediately. The variable is ignored on preview branches. See [US launch and deployment notes](docs/us-launch.md) for exact Pages settings, approval decisions and smoke tests.
-
-No Cloudflare project, custom domain, Worker or Tally form setting is changed by this repository.
+The optional `WAIA_US_WEB_ANALYTICS_TOKEN` injects a separate 32-character US Cloudflare Web Analytics token for production builds only. Without it, no beacon loads. A saved analytics objection suppresses it when enabled. The UK property is never copied. Cloudflare Pages, DNS, Tally settings and the WAIA application are not configured by this repository.
